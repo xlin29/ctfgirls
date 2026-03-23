@@ -13,13 +13,12 @@
 
     <div class="challenge-header">
       <h1>🍪 Challenge 2: Cookie Monster</h1>
-      <p class="desc">Browser cookies aren't just for remembering your login — sometimes they hide secrets too!</p>
+      <p class="desc">A mystery shop hid a secret in your browser's "cookies." Can you find it?</p>
     </div>
 
     <div class="challenge-content">
-      <h2>📖 The Story</h2>
       <div class="story-box">
-        You stumbled upon a mysterious online store. It boasts: "I've hidden a secret in your browser, and you'll never find it!" As a future security engineer, you won't take that lying down. You know browsers have something called "cookies" — small pieces of data that websites store in your browser. Time to investigate!
+        Websites can secretly stash little pieces of data in your browser — they're called <strong>cookies</strong>. This shop put several cookies in your browser. One of them contains the flag!
       </div>
 
       <div class="fake-website">
@@ -29,27 +28,23 @@
         </div>
         <div class="fake-body">
           <h2>Welcome to The Mystery Shop!</h2>
-          <p>We have a special event today~</p>
-          <p>I've secretly placed some "cookies" in your browser.</p>
-          <p>There are several cookies, but only ONE contains the real flag!</p>
-          <p>🍪🍪🍪</p>
+          <p>I've secretly placed some "cookies" in your browser. 🍪🍪🍪</p>
+          <p>There are several cookies, but only ONE has the real flag!</p>
         </div>
       </div>
 
       <div class="tools-section">
-        <h3>🛠️ How to View Cookies</h3>
+        <h3>🛠️ How to peek at cookies</h3>
         <ul>
-          <li>Press <code>F12</code> to open Developer Tools</li>
-          <li>Chrome: Click the <code>Application</code> tab → find <code>Cookies</code> on the left</li>
-          <li>Firefox: Click the <code>Storage</code> tab → find <code>Cookies</code> on the left</li>
+          <li>Press <code>F12</code> → go to <code>Application</code> tab → click <code>Cookies</code></li>
           <li>Or type <code>document.cookie</code> in the Console tab</li>
         </ul>
       </div>
 
       <div class="hint-box">
         <details>
-          <summary class="hint-toggle">💡 Need a hint? Click to reveal</summary>
-          <p style="margin-top:8px;">Three cookies have been set, but only one contains the real flag. It's named <code>secret_flag</code>. Try typing <code>document.cookie</code> in the Developer Tools Console!</p>
+          <summary class="hint-toggle">💡 Need a hint?</summary>
+          <p style="margin-top:8px;">Look for a cookie named <code>secret_flag</code>. The other two are decoys!</p>
         </details>
       </div>
     </div>
@@ -60,7 +55,6 @@
     </div>
     <div class="result-msg" id="result"></div>
   </div>
-
   <script src="/js/submit.js"></script>
 </body>
 </html>

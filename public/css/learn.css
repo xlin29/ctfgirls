@@ -1,0 +1,245 @@
+/* ============ LEARN PAGE — VISUAL CARD LAYOUT ============ */
+
+.learn-page {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 30px 24px 50px;
+}
+
+.learn-logo {
+  display: block;
+  width: 180px;
+  margin: 0 auto 30px;
+  opacity: 0.6;
+}
+
+/* Hero section */
+.learn-hero {
+  text-align: center;
+  margin-bottom: 45px;
+  animation: fadeInUp 0.6s ease;
+}
+
+.hero-icon {
+  font-size: 4.5em;
+  margin-bottom: 10px;
+  animation: bounceIn 0.8s ease;
+}
+
+.learn-hero h1 {
+  font-size: 3em;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 6px;
+  letter-spacing: -0.5px;
+}
+
+.hero-subtitle {
+  font-size: 1.35em;
+  color: #8080a0;
+  margin-bottom: 22px;
+}
+
+.flag-badge {
+  display: inline-block;
+  background: linear-gradient(135deg, rgba(196,30,58,0.15), rgba(196,30,58,0.08));
+  border: 1.5px solid rgba(196,30,58,0.3);
+  border-radius: 14px;
+  padding: 14px 32px;
+  font-family: 'Fira Code', monospace;
+  font-size: 1.4em;
+  font-weight: 600;
+  color: #e8556d;
+  letter-spacing: 0.5px;
+}
+
+/* Card grid */
+.learn-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+  margin-bottom: 35px;
+}
+
+@media (max-width: 640px) {
+  .learn-grid { grid-template-columns: 1fr; }
+}
+
+.learn-card {
+  border-radius: 18px;
+  padding: 28px 26px;
+  position: relative;
+  overflow: hidden;
+  animation: fadeInUp 0.5s ease both;
+}
+
+.learn-card:nth-child(1) { animation-delay: 0.1s; }
+.learn-card:nth-child(2) { animation-delay: 0.2s; }
+.learn-card:nth-child(3) { animation-delay: 0.3s; }
+.learn-card:nth-child(4) { animation-delay: 0.4s; }
+
+.card-icon {
+  font-size: 2.6em;
+  margin-bottom: 10px;
+}
+
+.learn-card h2 {
+  font-size: 0.92em;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 4px;
+  font-weight: 600;
+}
+
+.learn-card h3 {
+  font-size: 1.45em;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.learn-card p {
+  font-size: 1.12em;
+  line-height: 1.7;
+  margin: 0;
+}
+
+.learn-card code {
+  background: rgba(255,255,255,0.08);
+  padding: 1px 7px;
+  border-radius: 4px;
+  font-family: 'Fira Code', monospace;
+  font-size: 1em;
+}
+
+.learn-card strong {
+  color: #fff;
+}
+
+/* Skill card — red/pink accent */
+.skill-card {
+  background: linear-gradient(145deg, rgba(196,30,58,0.12), rgba(196,30,58,0.04));
+  border: 1px solid rgba(196,30,58,0.18);
+}
+.skill-card h2 { color: #e8556d; }
+.skill-card p { color: #c0a0aa; }
+.skill-card code { color: #e8556d; }
+
+/* Real world card — green accent */
+.world-card {
+  background: linear-gradient(145deg, rgba(80,200,120,0.1), rgba(80,200,120,0.03));
+  border: 1px solid rgba(80,200,120,0.15);
+}
+.world-card h2 { color: #50c878; }
+.world-card p { color: #90b8a0; }
+.world-card code { color: #50c878; }
+
+/* Career card — blue accent */
+.career-card {
+  background: linear-gradient(145deg, rgba(80,160,255,0.1), rgba(80,160,255,0.03));
+  border: 1px solid rgba(80,160,255,0.15);
+}
+.career-card h2 { color: #60b0ff; }
+.career-card p { color: #90a8c0; }
+
+/* Key takeaway card — gold accent */
+.key-card {
+  background: linear-gradient(145deg, rgba(245,166,35,0.1), rgba(245,166,35,0.03));
+  border: 1px solid rgba(245,166,35,0.15);
+}
+.key-card h2 { color: #f5a623; }
+.key-card p { color: #b8a880; }
+.key-card code { color: #f5a623; }
+
+/* Completion banner (ch6 only) */
+.completion-banner {
+  text-align: center;
+  background: linear-gradient(135deg, rgba(196,30,58,0.08), rgba(80,160,255,0.06), rgba(245,166,35,0.05));
+  border: 1px solid rgba(196,30,58,0.15);
+  border-radius: 22px;
+  padding: 40px 35px;
+  margin-bottom: 30px;
+  animation: fadeInUp 0.6s ease 0.5s both;
+}
+
+.completion-stars {
+  font-size: 4em;
+  margin-bottom: 12px;
+}
+
+.completion-banner h2 {
+  font-size: 1.9em;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.completion-banner p {
+  color: #9090b0;
+  font-size: 1.15em;
+  line-height: 1.7;
+  margin-bottom: 6px;
+}
+
+.completion-cta {
+  color: #e8556d !important;
+  font-weight: 600;
+  font-size: 1.2em !important;
+  margin-top: 12px !important;
+}
+
+.completion-sig {
+  color: #666 !important;
+  font-size: 1.02em !important;
+  margin-top: 8px !important;
+}
+
+/* Navigation */
+.learn-nav {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.nav-btn {
+  padding: 16px 34px;
+  text-decoration: none;
+  border-radius: 26px;
+  font-size: 1.2em;
+  font-weight: 500;
+  transition: transform 0.2s;
+}
+
+.nav-btn:hover {
+  transform: scale(1.05);
+}
+
+.nav-btn.primary {
+  background: linear-gradient(135deg, #C41E3A, #a01830);
+  color: white;
+}
+
+.nav-btn.secondary {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  color: #999;
+}
+
+.nav-btn.secondary:hover {
+  border-color: rgba(196,30,58,0.3);
+  color: #ddd;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(25px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes bounceIn {
+  0% { transform: scale(0); }
+  50% { transform: scale(1.15); }
+  70% { transform: scale(0.95); }
+  100% { transform: scale(1); }
+}

@@ -13,32 +13,28 @@
 
     <div class="challenge-header">
       <h1>📸 Challenge 4: Secrets in a Photo</h1>
-      <p class="desc">Digital Forensics 101: Every photo carries an invisible "ID card" — its metadata!</p>
+      <p class="desc">Every photo has a hidden "ID card" with invisible info. Time to be a digital detective!</p>
     </div>
 
     <div class="challenge-content">
-      <h2>📖 The Story</h2>
       <div class="story-box">
-        The cybersecurity department intercepted a suspicious photo. On the surface, it looks like an ordinary picture. But forensic investigators know that digital photos contain hidden metadata — including the time it was taken, the camera used, and sometimes even GPS coordinates!<br><br>
-        Your mission: download this photo, analyze its metadata, and find the hidden flag.
+        The security team intercepted a suspicious photo. It looks like a normal picture, but digital photos secretly carry <strong>metadata</strong> — the camera, the time, even GPS location! Download the photo and dig into its hidden data.
       </div>
 
-      <a href="/challenge/4/download" class="download-btn">📥 Download Evidence Photo (evidence.jpg)</a>
+      <a href="/challenge/4/download" class="download-btn">📥 Download Evidence Photo</a>
 
       <div class="tools-section">
-        <h3>🛠️ How to Analyze Metadata</h3>
+        <h3>🛠️ How to read a photo's secrets</h3>
         <ul>
-          <li>Online tools: Search for "EXIF viewer online" and upload the image</li>
-          <li>Recommended: <code>exif.tools</code> or <code>jimpl.com</code></li>
-          <li>Command line: <code>exiftool evidence.jpg</code> (if you know how to use the terminal)</li>
-          <li>Windows: Right-click the photo → Properties → Details tab</li>
+          <li>Search <strong>"EXIF viewer online"</strong> and upload the photo</li>
+          <li>Or on Windows: right-click → Properties → Details</li>
         </ul>
       </div>
 
       <div class="hint-box">
         <details>
-          <summary class="hint-toggle">💡 Need a hint? Click to reveal</summary>
-          <p style="margin-top:8px;">After downloading the photo, open it with an online EXIF viewer. Look for the <code>Comment</code> field — the flag is hidden there!</p>
+          <summary class="hint-toggle">💡 Need a hint?</summary>
+          <p style="margin-top:8px;">Upload the photo to an online EXIF viewer. Look for the <code>Comment</code> field — the flag is hiding there!</p>
         </details>
       </div>
     </div>
@@ -49,7 +45,6 @@
     </div>
     <div class="result-msg" id="result"></div>
   </div>
-
   <script src="/js/submit.js"></script>
 </body>
 </html>

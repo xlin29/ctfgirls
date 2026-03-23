@@ -3,52 +3,55 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>🎓 What You Learned — Image Metadata</title>
+  <title>You Learned: Image Metadata</title>
   <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/learn.css">
 </head>
 <body>
-  <div class="edu-page">
-    <a href="/" class="back-link">← Back to Challenges</a>
-    <img src="/images/logo.png" alt="EECS Girls Who Tech Camp" class="page-logo">
+  <div class="learn-page">
+    <img src="/images/logo.png" alt="EECS Girls Who Tech Camp" class="learn-logo">
 
-    <div class="edu-card">
-      <div class="congrats">📸</div>
+    <div class="learn-hero">
+      <div class="hero-icon">📸</div>
       <h1>Challenge 4 Complete!</h1>
-      <p style="color:#9090b0; margin-top:5px;">Secrets in a Photo</p>
-      <div class="flag-reveal"><%= flag %></div>
+      <p class="hero-subtitle">Secrets in a Photo</p>
+      <div class="flag-badge"><%= flag %></div>
     </div>
 
-    <div class="edu-section">
-      <h2>📚 What You Just Learned</h2>
-      <p>You performed your first act of <strong>digital forensics</strong> by analyzing a photo's <strong>metadata</strong> — data about data. Digital photos contain <strong>EXIF data</strong> (Exchangeable Image File Format) that records information invisible to the naked eye.</p>
-      <p>EXIF metadata can include: the camera model, date and time, shutter speed, ISO, GPS coordinates where the photo was taken, software used to edit it, and even the photographer's name or comments.</p>
-      <p>You used an EXIF viewer to extract this hidden information and found the flag embedded in the image's comment field.</p>
-    </div>
-
-    <div class="edu-section">
-      <div class="real-world-box">
-        <h3>🌍 Real-World Application</h3>
-        <p>Photo metadata has played a role in many real investigations. Law enforcement uses EXIF GPS data to locate where a photo was taken. Journalists have verified the authenticity of photos by checking metadata timestamps. In one famous case, a fugitive was tracked down because the photos he posted online still contained GPS coordinates. On the flip side, this is why social media platforms strip EXIF data from uploaded photos — to protect your privacy!</p>
+    <div class="learn-grid">
+      <div class="learn-card skill-card">
+        <div class="card-icon">🔍</div>
+        <h2>Skill Unlocked</h2>
+        <h3>EXIF Metadata Analysis</h3>
+        <p>Digital photos carry invisible EXIF data — camera model, timestamps, GPS coordinates, and embedded comments. You just extracted hidden info like a real forensic analyst!</p>
       </div>
 
-      <div class="career-box">
-        <h3>👩‍💻 Career Connection</h3>
-        <p><strong>Digital Forensics Analysts</strong> examine electronic evidence for law enforcement, corporations, and government agencies. They recover deleted files, analyze metadata, trace digital footprints, and present evidence in court. It's like being a detective, but for the digital world! Many forensics analysts have backgrounds in computer science or cybersecurity.</p>
+      <div class="learn-card world-card">
+        <div class="card-icon">🌍</div>
+        <h2>Real World</h2>
+        <h3>Catching Criminals</h3>
+        <p>A fugitive was once tracked down because photos he posted online still contained GPS coordinates. Law enforcement uses EXIF data routinely in investigations.</p>
+      </div>
+
+      <div class="learn-card career-card">
+        <div class="card-icon">👩‍💻</div>
+        <h2>Career Path</h2>
+        <h3>Digital Forensics Analyst</h3>
+        <p>Forensic analysts examine electronic evidence for law enforcement and corporations — recovering deleted files, analyzing metadata, and tracing digital footprints.</p>
+      </div>
+
+      <div class="learn-card key-card">
+        <div class="card-icon">🔑</div>
+        <h2>Key Takeaway</h2>
+        <h3>Photos Talk</h3>
+        <p>Always strip metadata before sharing photos publicly. Most social media platforms do this automatically, but not all apps do!</p>
       </div>
     </div>
 
-    <div class="edu-section">
-      <h2>🔑 Key Takeaways</h2>
-      <p>1. Every digital photo carries hidden metadata (EXIF data) beyond the visible image.</p>
-      <p>2. EXIF data can reveal sensitive information like GPS location, timestamps, and device info.</p>
-      <p>3. Always strip metadata from photos before sharing them publicly (most social media does this automatically).</p>
-      <p>4. Forensic investigators use metadata as evidence — it can reveal when, where, and how a file was created.</p>
-    </div>
-
-    <div class="next-btns">
-      <a href="/" class="next-btn secondary">← All Challenges</a>
+    <div class="learn-nav">
+      <a href="/" class="nav-btn secondary">← All Challenges</a>
       <% if (hasNext) { %>
-      <a href="/challenge/<%= nextNum %>" class="next-btn">Next Challenge →</a>
+      <a href="/challenge/<%= nextNum %>" class="nav-btn primary">Next Challenge →</a>
       <% } %>
     </div>
   </div>

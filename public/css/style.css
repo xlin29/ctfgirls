@@ -8,7 +8,7 @@
 
 body {
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
-  font-size: 18px;
+  font-size: 20px;
   background: linear-gradient(135deg, #0f0f1a 0%, #1a1025 40%, #0d1b2a 100%);
   color: #e0e0e0;
   min-height: 100vh;
@@ -243,9 +243,9 @@ footer p {
 
 /* ============ CHALLENGE PAGE ============ */
 .challenge-page {
-  max-width: 880px;
+  max-width: 920px;
   margin: 0 auto;
-  padding: 35px 24px;
+  padding: 35px 28px;
 }
 
 .back-link {
@@ -253,7 +253,7 @@ footer p {
   color: #8080a0;
   text-decoration: none;
   margin-bottom: 24px;
-  font-size: 1em;
+  font-size: 1.05em;
   transition: color 0.2s;
 }
 
@@ -263,25 +263,25 @@ footer p {
 
 .challenge-page .page-logo {
   display: block;
-  width: 240px;
-  margin: 0 auto 22px;
+  width: 260px;
+  margin: 0 auto 24px;
   opacity: 0.7;
 }
 
 .challenge-header {
-  margin-bottom: 30px;
+  margin-bottom: 32px;
 }
 
 .challenge-header h1 {
-  font-size: 2em;
+  font-size: 2.2em;
   color: #fff;
-  font-weight: 600;
-  margin-bottom: 12px;
+  font-weight: 700;
+  margin-bottom: 14px;
 }
 
 .challenge-header .desc {
   color: #9090b0;
-  font-size: 1.1em;
+  font-size: 1.2em;
   line-height: 1.7;
 }
 
@@ -289,25 +289,25 @@ footer p {
   background: rgba(255,255,255,0.03);
   border: 1px solid rgba(255,255,255,0.06);
   border-radius: 18px;
-  padding: 34px;
+  padding: 36px;
   margin-bottom: 28px;
 }
 
 .challenge-content h2 {
-  font-size: 1.3em;
+  font-size: 1.4em;
   color: #C41E3A;
   font-weight: 600;
-  margin-bottom: 16px;
+  margin-bottom: 18px;
 }
 
 .story-box {
   background: rgba(196,30,58,0.04);
   border-left: 3px solid #C41E3A;
-  padding: 18px 24px;
+  padding: 20px 26px;
   border-radius: 0 12px 12px 0;
-  margin-bottom: 22px;
-  font-size: 1.05em;
-  line-height: 1.8;
+  margin-bottom: 24px;
+  font-size: 1.15em;
+  line-height: 1.85;
   color: #b0b0c8;
 }
 
@@ -315,9 +315,9 @@ footer p {
   background: rgba(80,160,255,0.04);
   border: 1px dashed rgba(80,160,255,0.2);
   border-radius: 12px;
-  padding: 16px 22px;
-  margin-top: 18px;
-  font-size: 1em;
+  padding: 18px 24px;
+  margin-top: 20px;
+  font-size: 1.08em;
   color: #7aa8d0;
 }
 
@@ -325,24 +325,24 @@ footer p {
   cursor: pointer;
   color: #60b0ff;
   font-weight: 500;
-  font-size: 1.05em;
+  font-size: 1.12em;
 }
 
 /* Flag form */
 .flag-form {
   display: flex;
-  gap: 12px;
-  margin-top: 28px;
+  gap: 14px;
+  margin-top: 30px;
 }
 
 .flag-input {
   flex: 1;
-  padding: 15px 20px;
+  padding: 16px 22px;
   background: rgba(255,255,255,0.04);
   border: 1px solid rgba(255,255,255,0.1);
   border-radius: 14px;
   color: #fff;
-  font-size: 1.1em;
+  font-size: 1.15em;
   font-family: 'Fira Code', monospace;
   outline: none;
   transition: border-color 0.2s;
@@ -357,13 +357,13 @@ footer p {
 }
 
 .submit-btn {
-  padding: 15px 30px;
+  padding: 16px 34px;
   background: linear-gradient(135deg, #C41E3A, #a01830);
   color: white;
   border: none;
   border-radius: 14px;
-  font-size: 1.1em;
-  font-weight: 500;
+  font-size: 1.15em;
+  font-weight: 600;
   cursor: pointer;
   transition: transform 0.2s;
 }
@@ -373,10 +373,10 @@ footer p {
 }
 
 .result-msg {
-  margin-top: 16px;
-  padding: 14px 20px;
+  margin-top: 18px;
+  padding: 16px 22px;
   border-radius: 12px;
-  font-size: 1.05em;
+  font-size: 1.12em;
   display: none;
 }
 
@@ -405,28 +405,28 @@ footer p {
 .fake-navbar {
   background: #C41E3A;
   color: white;
-  padding: 14px 22px;
+  padding: 14px 24px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 1.05em;
+  font-size: 1.1em;
 }
 
 .fake-body {
-  padding: 28px;
+  padding: 30px;
   min-height: 200px;
 }
 
 .fake-body h2 {
   color: #333;
   margin-bottom: 14px;
-  font-size: 1.3em;
+  font-size: 1.4em;
 }
 
 .fake-body p {
   color: #555;
-  line-height: 1.8;
-  font-size: 1.05em;
+  line-height: 1.85;
+  font-size: 1.12em;
 }
 
 /* ============ TOOLS SECTION ============ */
@@ -440,7 +440,7 @@ footer p {
 
 .tools-section h3 {
   color: #60b0ff;
-  font-size: 1.15em;
+  font-size: 1.2em;
   font-weight: 600;
   margin-bottom: 14px;
 }
@@ -453,8 +453,8 @@ footer p {
 .tools-section li {
   padding: 6px 0;
   color: #9090b0;
-  font-size: 1em;
-  line-height: 1.6;
+  font-size: 1.08em;
+  line-height: 1.7;
 }
 
 .tools-section li::before {
@@ -479,8 +479,8 @@ footer p {
   border-radius: 12px;
   padding: 18px;
   font-family: 'Fira Code', monospace;
-  font-size: 0.85em;
-  line-height: 1.8;
+  font-size: 0.9em;
+  line-height: 1.85;
   overflow-x: auto;
   max-height: 420px;
   overflow-y: auto;
@@ -491,12 +491,12 @@ footer p {
 /* ============ DOWNLOAD BUTTON ============ */
 .download-btn {
   display: inline-block;
-  padding: 13px 28px;
+  padding: 14px 30px;
   background: linear-gradient(135deg, #50a0ff, #3070c0);
   color: white;
   text-decoration: none;
   border-radius: 14px;
-  font-size: 1.05em;
+  font-size: 1.12em;
   font-weight: 500;
   margin: 14px 0;
   transition: transform 0.2s;

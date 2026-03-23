@@ -13,33 +13,30 @@
 
     <div class="challenge-header">
       <h1>📋 Challenge 5: Log Detective</h1>
-      <p class="desc">Server access logs record every single request. A detective's job is to find the clues hidden in the noise!</p>
+      <p class="desc">A server was attacked! Can you spot the hacker's trail in these logs?</p>
     </div>
 
     <div class="challenge-content">
-      <h2>📖 The Story</h2>
       <div class="story-box">
-        The company's web admin noticed some unusual activity on the server. She exported today's access logs and needs your help analyzing them.<br><br>
-        Read through these logs carefully. Is there a suspicious request? The hacker may have left a trace in the URL or its parameters...
+        The web admin noticed weird activity and pulled the server logs. Every request anyone makes gets recorded here. One of these requests has a <strong>secret message</strong> hidden in the URL — encoded so it's not obvious. Can you find and decode it?
       </div>
 
       <h2 style="margin-top: 20px;">📜 Server Access Log</h2>
       <div class="log-viewer"><%= logContent %></div>
 
       <div class="tools-section">
-        <h3>🛠️ Log Analysis Tips</h3>
+        <h3>🛠️ What to look for</h3>
         <ul>
-          <li>Web server logs typically contain: IP address, timestamp, HTTP method, URL path, status code</li>
-          <li>Look for unusual parameters or encoded strings in the URLs</li>
-          <li>Some content might be encoded in Base64 (looks like a string of letters/numbers, possibly ending in <code>=</code>)</li>
-          <li>Use an online Base64 decoder to decode suspicious strings</li>
+          <li>Scan for unusual URL parameters — anything that looks like a long random string</li>
+          <li>It might be <strong>Base64</strong> encoded (letters + numbers, possibly ending in <code>=</code>)</li>
+          <li>Search <strong>"Base64 decode online"</strong> to decode it!</li>
         </ul>
       </div>
 
       <div class="hint-box">
         <details>
-          <summary class="hint-toggle">💡 Need a hint? Click to reveal</summary>
-          <p style="margin-top:8px;">Look at each log line carefully. One request has a Base64-encoded string in its query parameter. Find it and decode it using an online tool — just search for "Base64 decode online." Base64 strings contain only letters, numbers, <code>+</code>, and <code>/</code>, and often end with <code>=</code>.</p>
+          <summary class="hint-toggle">💡 Need a hint?</summary>
+          <p style="margin-top:8px;">Look at the <code>/search?q=</code> request from IP <code>10.0.0.55</code>. That long string after <code>q=</code> is Base64. Decode it!</p>
         </details>
       </div>
     </div>
@@ -50,7 +47,6 @@
     </div>
     <div class="result-msg" id="result"></div>
   </div>
-
   <script src="/js/submit.js"></script>
 </body>
 </html>

@@ -3,52 +3,55 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>🎓 What You Learned — Cookies</title>
+  <title>You Learned: Cookies</title>
   <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/learn.css">
 </head>
 <body>
-  <div class="edu-page">
-    <a href="/" class="back-link">← Back to Challenges</a>
-    <img src="/images/logo.png" alt="EECS Girls Who Tech Camp" class="page-logo">
+  <div class="learn-page">
+    <img src="/images/logo.png" alt="EECS Girls Who Tech Camp" class="learn-logo">
 
-    <div class="edu-card">
-      <div class="congrats">🍪</div>
+    <div class="learn-hero">
+      <div class="hero-icon">🍪</div>
       <h1>Challenge 2 Complete!</h1>
-      <p style="color:#9090b0; margin-top:5px;">Cookie Monster</p>
-      <div class="flag-reveal"><%= flag %></div>
+      <p class="hero-subtitle">Cookie Monster</p>
+      <div class="flag-badge"><%= flag %></div>
     </div>
 
-    <div class="edu-section">
-      <h2>📚 What You Just Learned</h2>
-      <p>You explored <strong>browser cookies</strong> — small pieces of data that websites store in your browser. Cookies are used for many purposes: keeping you logged in, remembering your preferences, and tracking your activity.</p>
-      <p>You used the browser's <strong>Developer Tools</strong> (<code>F12</code>) to inspect cookies. In the <code>Application</code> tab (Chrome) or <code>Storage</code> tab (Firefox), you can see every cookie a website has set — including its name, value, and expiration date.</p>
-      <p>The <code>document.cookie</code> command in the Console gives you quick access to all non-HttpOnly cookies on the current page.</p>
-    </div>
-
-    <div class="edu-section">
-      <div class="real-world-box">
-        <h3>🌍 Real-World Application</h3>
-        <p>Cookies are central to web security. <strong>Session hijacking</strong> attacks steal a user's session cookie to impersonate them. That's why important cookies should be marked <code>HttpOnly</code> (can't be read by JavaScript) and <code>Secure</code> (only sent over HTTPS). Understanding cookies is essential for both building and securing web applications.</p>
+    <div class="learn-grid">
+      <div class="learn-card skill-card">
+        <div class="card-icon">🔍</div>
+        <h2>Skill Unlocked</h2>
+        <h3>Cookie Inspection</h3>
+        <p>Cookies are small data files websites store in your browser. <code>F12 → Application → Cookies</code> or <code>document.cookie</code> reveals them all.</p>
       </div>
 
-      <div class="career-box">
-        <h3>👩‍💻 Career Connection</h3>
-        <p><strong>Web Application Security Engineers</strong> design systems to protect cookies and user sessions. They implement security features like <code>HttpOnly</code> flags, <code>SameSite</code> attributes, and secure token rotation. Every major tech company — Google, Meta, Amazon — employs security engineers to protect billions of users' data.</p>
+      <div class="learn-card world-card">
+        <div class="card-icon">🌍</div>
+        <h2>Real World</h2>
+        <h3>Session Hijacking</h3>
+        <p>Attackers steal session cookies to impersonate users. That's why secure cookies use <code>HttpOnly</code> and <code>Secure</code> flags to protect against theft.</p>
+      </div>
+
+      <div class="learn-card career-card">
+        <div class="card-icon">👩‍💻</div>
+        <h2>Career Path</h2>
+        <h3>Web Security Engineer</h3>
+        <p>Every major tech company — Google, Meta, Amazon — employs security engineers who design systems to protect cookies and user sessions.</p>
+      </div>
+
+      <div class="learn-card key-card">
+        <div class="card-icon">🔑</div>
+        <h2>Key Takeaway</h2>
+        <h3>Cookies Are Readable</h3>
+        <p>Never store passwords or secrets in client-accessible cookies. Use <code>HttpOnly</code> to block JavaScript access, and <code>Secure</code> to require HTTPS.</p>
       </div>
     </div>
 
-    <div class="edu-section">
-      <h2>🔑 Key Takeaways</h2>
-      <p>1. Cookies store data in your browser that websites can read and write.</p>
-      <p>2. Never store sensitive secrets (like passwords) in client-accessible cookies.</p>
-      <p>3. The <code>HttpOnly</code> flag prevents JavaScript from reading a cookie, adding a layer of protection.</p>
-      <p>4. Developer Tools let you inspect, edit, and delete cookies on any website you visit.</p>
-    </div>
-
-    <div class="next-btns">
-      <a href="/" class="next-btn secondary">← All Challenges</a>
+    <div class="learn-nav">
+      <a href="/" class="nav-btn secondary">← All Challenges</a>
       <% if (hasNext) { %>
-      <a href="/challenge/<%= nextNum %>" class="next-btn">Next Challenge →</a>
+      <a href="/challenge/<%= nextNum %>" class="nav-btn primary">Next Challenge →</a>
       <% } %>
     </div>
   </div>

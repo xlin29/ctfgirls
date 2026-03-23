@@ -3,52 +3,55 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>🎓 What You Learned — Log Analysis</title>
+  <title>You Learned: Log Analysis</title>
   <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/learn.css">
 </head>
 <body>
-  <div class="edu-page">
-    <a href="/" class="back-link">← Back to Challenges</a>
-    <img src="/images/logo.png" alt="EECS Girls Who Tech Camp" class="page-logo">
+  <div class="learn-page">
+    <img src="/images/logo.png" alt="EECS Girls Who Tech Camp" class="learn-logo">
 
-    <div class="edu-card">
-      <div class="congrats">📋</div>
+    <div class="learn-hero">
+      <div class="hero-icon">📋</div>
       <h1>Challenge 5 Complete!</h1>
-      <p style="color:#9090b0; margin-top:5px;">Log Detective</p>
-      <div class="flag-reveal"><%= flag %></div>
+      <p class="hero-subtitle">Log Detective</p>
+      <div class="flag-badge"><%= flag %></div>
     </div>
 
-    <div class="edu-section">
-      <h2>📚 What You Just Learned</h2>
-      <p>You practiced <strong>log analysis</strong> — one of the most important skills in cybersecurity. Server access logs record every HTTP request: who made it (IP address), when, what they requested (URL path), and what happened (status code).</p>
-      <p>You also learned about <strong>Base64 encoding</strong> — a way to represent binary data as text. Base64 is NOT encryption (it's trivially reversible), but attackers sometimes use it to obfuscate data in URLs, cookies, or request parameters. You spotted a suspicious Base64 string in a URL query parameter and decoded it to reveal the flag.</p>
-      <p>You also noticed that the suspicious IP (<code>10.0.0.55</code>) was trying to access sensitive paths like <code>/admin</code>, <code>/.env</code>, and <code>/backup.sql</code> — classic signs of an attacker probing for vulnerabilities.</p>
-    </div>
-
-    <div class="edu-section">
-      <div class="real-world-box">
-        <h3>🌍 Real-World Application</h3>
-        <p>Log analysis is the backbone of <strong>incident response</strong>. When a company gets hacked, the first thing the security team does is examine logs to understand what happened, when, and how. Security teams use tools like <strong>Splunk</strong>, <strong>ELK Stack</strong>, and <strong>SIEM systems</strong> to monitor millions of log entries in real time and flag suspicious patterns automatically.</p>
+    <div class="learn-grid">
+      <div class="learn-card skill-card">
+        <div class="card-icon">🔍</div>
+        <h2>Skill Unlocked</h2>
+        <h3>Log Analysis + Base64</h3>
+        <p>You analyzed server logs to spot suspicious patterns, then decoded a Base64 string. Base64 is <strong>encoding, not encryption</strong> — it's trivially reversible!</p>
       </div>
 
-      <div class="career-box">
-        <h3>👩‍💻 Career Connection</h3>
-        <p><strong>SOC Analysts</strong> (Security Operations Center) monitor networks 24/7 and analyze logs to detect and respond to threats. <strong>Incident Responders</strong> are called in when a breach occurs — they're the cybersecurity equivalent of firefighters. These are high-demand careers with excellent pay, and many entry-level positions value curiosity and problem-solving skills over formal degrees.</p>
+      <div class="learn-card world-card">
+        <div class="card-icon">🌍</div>
+        <h2>Real World</h2>
+        <h3>Incident Response</h3>
+        <p>When a company gets hacked, the security team's first move is examining logs. Tools like Splunk and ELK Stack monitor millions of log entries in real time.</p>
+      </div>
+
+      <div class="learn-card career-card">
+        <div class="card-icon">👩‍💻</div>
+        <h2>Career Path</h2>
+        <h3>SOC Analyst</h3>
+        <p>Security Operations Center analysts monitor networks 24/7, detecting and responding to threats. High demand, excellent pay, and curiosity matters more than degrees.</p>
+      </div>
+
+      <div class="learn-card key-card">
+        <div class="card-icon">🔑</div>
+        <h2>Key Takeaway</h2>
+        <h3>Patterns Tell Stories</h3>
+        <p>Suspicious patterns — probing <code>/admin</code>, <code>/.env</code>, <code>/backup.sql</code> — are red flags. Pattern recognition and attention to detail are superpowers in security.</p>
       </div>
     </div>
 
-    <div class="edu-section">
-      <h2>🔑 Key Takeaways</h2>
-      <p>1. Server logs are a goldmine of information for both defenders and investigators.</p>
-      <p>2. Base64 is encoding (reversible), NOT encryption (secure) — never use it to hide secrets.</p>
-      <p>3. Suspicious patterns in logs — like probing for <code>/admin</code>, <code>/.env</code>, <code>/backup.sql</code> — are red flags for an attack.</p>
-      <p>4. Pattern recognition and attention to detail are superpowers in cybersecurity.</p>
-    </div>
-
-    <div class="next-btns">
-      <a href="/" class="next-btn secondary">← All Challenges</a>
+    <div class="learn-nav">
+      <a href="/" class="nav-btn secondary">← All Challenges</a>
       <% if (hasNext) { %>
-      <a href="/challenge/<%= nextNum %>" class="next-btn">Next Challenge →</a>
+      <a href="/challenge/<%= nextNum %>" class="nav-btn primary">Next Challenge →</a>
       <% } %>
     </div>
   </div>
