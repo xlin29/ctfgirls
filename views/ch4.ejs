@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Challenge 4: Secrets in a Photo</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <div class="challenge-page">
+    <a href="/" class="back-link">← Back to Challenges</a>
+    <img src="/images/logo.png" alt="EECS Girls Who Tech Camp" class="page-logo">
+
+    <div class="challenge-header">
+      <h1>📸 Challenge 4: Secrets in a Photo</h1>
+      <p class="desc">Digital Forensics 101: Every photo carries an invisible "ID card" — its metadata!</p>
+    </div>
+
+    <div class="challenge-content">
+      <h2>📖 The Story</h2>
+      <div class="story-box">
+        The cybersecurity department intercepted a suspicious photo. On the surface, it looks like an ordinary picture. But forensic investigators know that digital photos contain hidden metadata — including the time it was taken, the camera used, and sometimes even GPS coordinates!<br><br>
+        Your mission: download this photo, analyze its metadata, and find the hidden flag.
+      </div>
+
+      <a href="/challenge/4/download" class="download-btn">📥 Download Evidence Photo (evidence.jpg)</a>
+
+      <div class="tools-section">
+        <h3>🛠️ How to Analyze Metadata</h3>
+        <ul>
+          <li>Online tools: Search for "EXIF viewer online" and upload the image</li>
+          <li>Recommended: <code>exif.tools</code> or <code>jimpl.com</code></li>
+          <li>Command line: <code>exiftool evidence.jpg</code> (if you know how to use the terminal)</li>
+          <li>Windows: Right-click the photo → Properties → Details tab</li>
+        </ul>
+      </div>
+
+      <div class="hint-box">
+        <details>
+          <summary class="hint-toggle">💡 Need a hint? Click to reveal</summary>
+          <p style="margin-top:8px;">After downloading the photo, open it with an online EXIF viewer. Look for the <code>Comment</code> field — the flag is hidden there!</p>
+        </details>
+      </div>
+    </div>
+
+    <div class="flag-form">
+      <input type="text" class="flag-input" id="flagInput" placeholder="flag{...}" />
+      <button class="submit-btn" onclick="submitFlag('ch4')">Submit Flag</button>
+    </div>
+    <div class="result-msg" id="result"></div>
+  </div>
+
+  <script src="/js/submit.js"></script>
+</body>
+</html>

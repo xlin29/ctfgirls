@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🎓 What You Learned — Cookies</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <div class="edu-page">
+    <a href="/" class="back-link">← Back to Challenges</a>
+    <img src="/images/logo.png" alt="EECS Girls Who Tech Camp" class="page-logo">
+
+    <div class="edu-card">
+      <div class="congrats">🍪</div>
+      <h1>Challenge 2 Complete!</h1>
+      <p style="color:#9090b0; margin-top:5px;">Cookie Monster</p>
+      <div class="flag-reveal"><%= flag %></div>
+    </div>
+
+    <div class="edu-section">
+      <h2>📚 What You Just Learned</h2>
+      <p>You explored <strong>browser cookies</strong> — small pieces of data that websites store in your browser. Cookies are used for many purposes: keeping you logged in, remembering your preferences, and tracking your activity.</p>
+      <p>You used the browser's <strong>Developer Tools</strong> (<code>F12</code>) to inspect cookies. In the <code>Application</code> tab (Chrome) or <code>Storage</code> tab (Firefox), you can see every cookie a website has set — including its name, value, and expiration date.</p>
+      <p>The <code>document.cookie</code> command in the Console gives you quick access to all non-HttpOnly cookies on the current page.</p>
+    </div>
+
+    <div class="edu-section">
+      <div class="real-world-box">
+        <h3>🌍 Real-World Application</h3>
+        <p>Cookies are central to web security. <strong>Session hijacking</strong> attacks steal a user's session cookie to impersonate them. That's why important cookies should be marked <code>HttpOnly</code> (can't be read by JavaScript) and <code>Secure</code> (only sent over HTTPS). Understanding cookies is essential for both building and securing web applications.</p>
+      </div>
+
+      <div class="career-box">
+        <h3>👩‍💻 Career Connection</h3>
+        <p><strong>Web Application Security Engineers</strong> design systems to protect cookies and user sessions. They implement security features like <code>HttpOnly</code> flags, <code>SameSite</code> attributes, and secure token rotation. Every major tech company — Google, Meta, Amazon — employs security engineers to protect billions of users' data.</p>
+      </div>
+    </div>
+
+    <div class="edu-section">
+      <h2>🔑 Key Takeaways</h2>
+      <p>1. Cookies store data in your browser that websites can read and write.</p>
+      <p>2. Never store sensitive secrets (like passwords) in client-accessible cookies.</p>
+      <p>3. The <code>HttpOnly</code> flag prevents JavaScript from reading a cookie, adding a layer of protection.</p>
+      <p>4. Developer Tools let you inspect, edit, and delete cookies on any website you visit.</p>
+    </div>
+
+    <div class="next-btns">
+      <a href="/" class="next-btn secondary">← All Challenges</a>
+      <% if (hasNext) { %>
+      <a href="/challenge/<%= nextNum %>" class="next-btn">Next Challenge →</a>
+      <% } %>
+    </div>
+  </div>
+</body>
+</html>

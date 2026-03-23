@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Challenge 2: Cookie Monster</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <div class="challenge-page">
+    <a href="/" class="back-link">← Back to Challenges</a>
+    <img src="/images/logo.png" alt="EECS Girls Who Tech Camp" class="page-logo">
+
+    <div class="challenge-header">
+      <h1>🍪 Challenge 2: Cookie Monster</h1>
+      <p class="desc">Browser cookies aren't just for remembering your login — sometimes they hide secrets too!</p>
+    </div>
+
+    <div class="challenge-content">
+      <h2>📖 The Story</h2>
+      <div class="story-box">
+        You stumbled upon a mysterious online store. It boasts: "I've hidden a secret in your browser, and you'll never find it!" As a future security engineer, you won't take that lying down. You know browsers have something called "cookies" — small pieces of data that websites store in your browser. Time to investigate!
+      </div>
+
+      <div class="fake-website">
+        <div class="fake-navbar">
+          <span>🏪 The Mystery Shop</span>
+          <span>Home | Products | Contact</span>
+        </div>
+        <div class="fake-body">
+          <h2>Welcome to The Mystery Shop!</h2>
+          <p>We have a special event today~</p>
+          <p>I've secretly placed some "cookies" in your browser.</p>
+          <p>There are several cookies, but only ONE contains the real flag!</p>
+          <p>🍪🍪🍪</p>
+        </div>
+      </div>
+
+      <div class="tools-section">
+        <h3>🛠️ How to View Cookies</h3>
+        <ul>
+          <li>Press <code>F12</code> to open Developer Tools</li>
+          <li>Chrome: Click the <code>Application</code> tab → find <code>Cookies</code> on the left</li>
+          <li>Firefox: Click the <code>Storage</code> tab → find <code>Cookies</code> on the left</li>
+          <li>Or type <code>document.cookie</code> in the Console tab</li>
+        </ul>
+      </div>
+
+      <div class="hint-box">
+        <details>
+          <summary class="hint-toggle">💡 Need a hint? Click to reveal</summary>
+          <p style="margin-top:8px;">Three cookies have been set, but only one contains the real flag. It's named <code>secret_flag</code>. Try typing <code>document.cookie</code> in the Developer Tools Console!</p>
+        </details>
+      </div>
+    </div>
+
+    <div class="flag-form">
+      <input type="text" class="flag-input" id="flagInput" placeholder="flag{...}" />
+      <button class="submit-btn" onclick="submitFlag('ch2')">Submit Flag</button>
+    </div>
+    <div class="result-msg" id="result"></div>
+  </div>
+
+  <script src="/js/submit.js"></script>
+</body>
+</html>

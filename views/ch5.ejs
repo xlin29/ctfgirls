@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Challenge 5: Log Detective</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <div class="challenge-page">
+    <a href="/" class="back-link">← Back to Challenges</a>
+    <img src="/images/logo.png" alt="EECS Girls Who Tech Camp" class="page-logo">
+
+    <div class="challenge-header">
+      <h1>📋 Challenge 5: Log Detective</h1>
+      <p class="desc">Server access logs record every single request. A detective's job is to find the clues hidden in the noise!</p>
+    </div>
+
+    <div class="challenge-content">
+      <h2>📖 The Story</h2>
+      <div class="story-box">
+        The company's web admin noticed some unusual activity on the server. She exported today's access logs and needs your help analyzing them.<br><br>
+        Read through these logs carefully. Is there a suspicious request? The hacker may have left a trace in the URL or its parameters...
+      </div>
+
+      <h2 style="margin-top: 20px;">📜 Server Access Log</h2>
+      <div class="log-viewer"><%= logContent %></div>
+
+      <div class="tools-section">
+        <h3>🛠️ Log Analysis Tips</h3>
+        <ul>
+          <li>Web server logs typically contain: IP address, timestamp, HTTP method, URL path, status code</li>
+          <li>Look for unusual parameters or encoded strings in the URLs</li>
+          <li>Some content might be encoded in Base64 (looks like a string of letters/numbers, possibly ending in <code>=</code>)</li>
+          <li>Use an online Base64 decoder to decode suspicious strings</li>
+        </ul>
+      </div>
+
+      <div class="hint-box">
+        <details>
+          <summary class="hint-toggle">💡 Need a hint? Click to reveal</summary>
+          <p style="margin-top:8px;">Look at each log line carefully. One request has a Base64-encoded string in its query parameter. Find it and decode it using an online tool — just search for "Base64 decode online." Base64 strings contain only letters, numbers, <code>+</code>, and <code>/</code>, and often end with <code>=</code>.</p>
+        </details>
+      </div>
+    </div>
+
+    <div class="flag-form">
+      <input type="text" class="flag-input" id="flagInput" placeholder="flag{...}" />
+      <button class="submit-btn" onclick="submitFlag('ch5')">Submit Flag</button>
+    </div>
+    <div class="result-msg" id="result"></div>
+  </div>
+
+  <script src="/js/submit.js"></script>
+</body>
+</html>

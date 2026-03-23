@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Challenge 3: The Robot's Secret</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <div class="challenge-page">
+    <a href="/" class="back-link">← Back to Challenges</a>
+    <img src="/images/logo.png" alt="EECS Girls Who Tech Camp" class="page-logo">
+
+    <div class="challenge-header">
+      <h1>🤖 Challenge 3: The Robot's Secret</h1>
+      <p class="desc">Every website can have a special file that tells search engine "robots" which pages are off-limits...</p>
+    </div>
+
+    <div class="challenge-content">
+      <h2>📖 The Story</h2>
+      <div class="story-box">
+        You're investigating a suspicious website and you suspect the site owner has hidden some secret pages. In the world of web security, there's a publicly readable "gentleman's agreement" file that websites use to tell search engine crawlers "don't index these pages." But here's the thing — the file is readable by <em>anyone</em>... If you know its name, you might just discover the hidden pages!
+      </div>
+
+      <div class="fake-website">
+        <div class="fake-navbar">
+          <span>📝 Someone's Blog</span>
+          <span>Posts | About | Contact</span>
+        </div>
+        <div class="fake-body">
+          <h2>Welcome to My Blog!</h2>
+          <p>Lots of interesting articles here.</p>
+          <p>But there are some pages I don't want anyone to find~</p>
+          <p>I already told the search engine robots to stay away, so nobody will discover them... right?</p>
+        </div>
+      </div>
+
+      <div class="tools-section">
+        <h3>🛠️ About robots.txt</h3>
+        <ul>
+          <li><code>robots.txt</code> is a text file placed at a website's root directory</li>
+          <li>It tells search engine crawlers which pages NOT to index</li>
+          <li>But it's just a "gentleman's agreement" — anyone can read the file directly!</li>
+          <li>Try adding <code>/robots.txt</code> to the end of the website URL in your browser</li>
+        </ul>
+      </div>
+
+      <div class="hint-box">
+        <details>
+          <summary class="hint-toggle">💡 Need a hint? Click to reveal</summary>
+          <p style="margin-top:8px;">Type <code>http://localhost:3000/robots.txt</code> in your browser's address bar. See the <code>Disallow</code> path? Try visiting that path!</p>
+        </details>
+      </div>
+    </div>
+
+    <div class="flag-form">
+      <input type="text" class="flag-input" id="flagInput" placeholder="flag{...}" />
+      <button class="submit-btn" onclick="submitFlag('ch3')">Submit Flag</button>
+    </div>
+    <div class="result-msg" id="result"></div>
+  </div>
+
+  <script src="/js/submit.js"></script>
+</body>
+</html>

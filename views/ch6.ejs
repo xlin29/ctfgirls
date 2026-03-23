@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Challenge 6: The Mystery File</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <div class="challenge-page">
+    <a href="/" class="back-link">← Back to Challenges</a>
+    <img src="/images/logo.png" alt="EECS Girls Who Tech Camp" class="page-logo">
+
+    <div class="challenge-header">
+      <h1>🔮 Challenge 6: The Mystery File</h1>
+      <p class="desc">Advanced Forensics: File extensions can be faked, but a file's "magic numbers" never lie!</p>
+    </div>
+
+    <div class="challenge-content">
+      <h2>📖 The Story</h2>
+      <div class="story-box">
+        The security team found a file called <code>mystery_file.dat</code> on a compromised computer. Its extension says <code>.dat</code>, but experienced forensic analysts know — file extensions can be changed to anything!<br><br>
+        Every file format has a specific byte sequence at the beginning, called its "magic number" or "file signature." For example, PDF files always start with <code>%PDF</code>, and PNG images start with <code>89 50 4E 47</code>.<br><br>
+        Download this mystery file, figure out its true identity, open it the right way — and the flag is yours!
+      </div>
+
+      <a href="/challenge/6/download" class="download-btn">📥 Download Mystery File (mystery_file.dat)</a>
+
+      <div class="tools-section">
+        <h3>🛠️ How to Identify a File's True Type</h3>
+        <ul>
+          <li>Open the file in a hex editor and check the first few bytes</li>
+          <li>Online tools: search "hex editor online" or "file signature checker"</li>
+          <li>Common magic numbers: <code>%PDF</code> = PDF, <code>PK</code> = ZIP, <code>89 PNG</code> = PNG</li>
+          <li>Command line: <code>file mystery_file.dat</code> (Linux/Mac) or <code>xxd mystery_file.dat | head</code></li>
+          <li>Easiest method: try renaming <code>.dat</code> to other extensions and see what opens!</li>
+        </ul>
+      </div>
+
+      <div class="hint-box">
+        <details>
+          <summary class="hint-toggle">💡 Hint 1: How do I check the first bytes?</summary>
+          <p style="margin-top:8px;">You can open the .dat file with a text editor (like Notepad) and look at the very beginning for recognizable text. Or use an online hex viewer.</p>
+        </details>
+        <details style="margin-top: 10px;">
+          <summary class="hint-toggle">💡 Hint 2: I know the file type — now what?</summary>
+          <p style="margin-top:8px;">If the file starts with <code>%PDF</code>, it's actually a PDF file! Rename the extension from <code>.dat</code> to <code>.pdf</code>, then open it with a PDF reader to see the flag.</p>
+        </details>
+      </div>
+    </div>
+
+    <div class="flag-form">
+      <input type="text" class="flag-input" id="flagInput" placeholder="flag{...}" />
+      <button class="submit-btn" onclick="submitFlag('ch6')">Submit Flag</button>
+    </div>
+    <div class="result-msg" id="result"></div>
+  </div>
+
+  <script src="/js/submit.js"></script>
+</body>
+</html>

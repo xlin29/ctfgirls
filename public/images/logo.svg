@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 320" width="720" height="320">
+  <rect width="720" height="320" fill="white"/>
+
+  <!-- Woman face - refined line art -->
+  <g fill="none" stroke="#444" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Hair left side flowing -->
+    <path d="M95,260 C75,240 62,215 58,190 C54,165 56,140 62,120 C65,108 60,95 55,85 C48,72 50,55 60,45"/>
+    <path d="M60,45 C68,35 78,38 82,50 C86,60 82,72 78,82"/>
+    <!-- Additional hair waves -->
+    <path d="M58,190 C50,175 48,155 52,135 C54,122 50,108 44,98 C38,86 42,70 52,62"/>
+    <path d="M52,135 C44,118 42,100 48,82"/>
+
+    <!-- Face outline -->
+    <path d="M100,48 C115,35 132,38 140,52 C148,66 145,82 138,95 C132,106 135,118 142,128 C152,142 155,160 148,180 C142,198 130,215 115,228 C105,238 95,242 88,240"/>
+
+    <!-- Forehead to hair connection -->
+    <path d="M60,45 C70,30 90,28 100,48"/>
+
+    <!-- Eye -->
+    <path d="M100,118 C106,112 116,112 122,118"/>
+    <path d="M106,115 C107,112 108,110 109,108"/>
+    <path d="M113,115 C112,112 111,110 110,108"/>
+    <!-- Eyelashes -->
+    <path d="M98,118 C96,115 95,112 96,110"/>
+
+    <!-- Nose hint -->
+    <path d="M115,142 C112,146 108,148 105,146"/>
+
+    <!-- Lips -->
+    <path d="M98,162 C104,156 114,156 120,162"/>
+    <path d="M98,162 C104,168 114,168 120,162"/>
+  </g>
+
+  <!-- Circuit board traces from head -->
+  <g stroke="#8B1A2B" stroke-width="2.8" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Main trace from top of head going right -->
+    <path d="M130,65 L190,65 L210,45 L380,45"/>
+    <!-- Branch up from junction -->
+    <path d="M260,45 L260,25 L480,25"/>
+    <!-- Branch going right-down -->
+    <path d="M210,45 L210,75 L310,75 L340,95 L440,95"/>
+    <!-- Another trace from forehead -->
+    <path d="M140,90 L200,90 L230,65"/>
+    <!-- Lower trace -->
+    <path d="M380,45 L380,65 L520,65"/>
+  </g>
+
+  <!-- Circuit nodes (filled dots) -->
+  <g fill="#8B1A2B">
+    <circle cx="130" cy="65" r="5.5"/>
+    <circle cx="260" cy="45" r="4"/>
+    <circle cx="310" cy="75" r="5.5"/>
+    <circle cx="480" cy="25" r="5.5"/>
+    <circle cx="440" cy="95" r="5"/>
+    <circle cx="520" cy="65" r="5.5"/>
+    <circle cx="380" cy="45" r="4"/>
+  </g>
+
+  <!-- Circuit nodes (hollow circles) -->
+  <g fill="none" stroke="#8B1A2B" stroke-width="2.2">
+    <circle cx="210" cy="45" r="4.5"/>
+    <circle cx="230" cy="65" r="4"/>
+    <circle cx="340" cy="95" r="4"/>
+  </g>
+
+  <!-- Script text -->
+  <text x="260" y="205" font-family="'Segoe Script', 'Brush Script MT', 'Dancing Script', cursive"
+        font-size="52" fill="#8B1A2B" font-style="italic" font-weight="400"
+        letter-spacing="-0.5">
+    EECS Girls Who Tech Camp
+  </text>
+</svg>

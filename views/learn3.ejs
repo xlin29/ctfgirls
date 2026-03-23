@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🎓 What You Learned — robots.txt</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <div class="edu-page">
+    <a href="/" class="back-link">← Back to Challenges</a>
+    <img src="/images/logo.png" alt="EECS Girls Who Tech Camp" class="page-logo">
+
+    <div class="edu-card">
+      <div class="congrats">🤖</div>
+      <h1>Challenge 3 Complete!</h1>
+      <p style="color:#9090b0; margin-top:5px;">The Robot's Secret</p>
+      <div class="flag-reveal"><%= flag %></div>
+    </div>
+
+    <div class="edu-section">
+      <h2>📚 What You Just Learned</h2>
+      <p>You discovered <strong>robots.txt</strong>, a publicly accessible file that tells search engine crawlers which parts of a website they shouldn't index. It sits at the root of every website (e.g., <code>example.com/robots.txt</code>).</p>
+      <p>The key insight: <code>robots.txt</code> is a <strong>suggestion, not a security measure</strong>. It asks well-behaved bots to stay away, but any human or program can read the file directly and visit the "hidden" pages anyway.</p>
+      <p>This is a form of <strong>security through obscurity</strong> — trying to hide something by not drawing attention to it, rather than actually protecting it with authentication or access controls.</p>
+    </div>
+
+    <div class="edu-section">
+      <div class="real-world-box">
+        <h3>🌍 Real-World Application</h3>
+        <p>Security professionals check <code>robots.txt</code> as one of their first reconnaissance steps. It often reveals admin panels, staging environments, internal tools, and backup directories that the site owner wanted to keep out of search results but didn't properly protect. Major data breaches have started with an attacker simply reading <code>robots.txt</code> to find unprotected admin pages.</p>
+      </div>
+
+      <div class="career-box">
+        <h3>👩‍💻 Career Connection</h3>
+        <p><strong>Security Analysts</strong> and <strong>Bug Bounty Hunters</strong> use this technique constantly. Bug bounty programs — offered by companies like Google, Apple, and Microsoft — pay researchers real money for finding security vulnerabilities. Some bug bounty hunters earn six-figure incomes, and many started as curious teenagers just like you!</p>
+      </div>
+    </div>
+
+    <div class="edu-section">
+      <h2>🔑 Key Takeaways</h2>
+      <p>1. <code>robots.txt</code> is publicly readable — it's NOT a security mechanism.</p>
+      <p>2. "Security through obscurity" alone is never enough to protect sensitive data.</p>
+      <p>3. Real protection requires authentication (login), authorization (permissions), and access controls.</p>
+      <p>4. Reconnaissance — gathering publicly available information — is the first phase of security testing.</p>
+    </div>
+
+    <div class="next-btns">
+      <a href="/" class="next-btn secondary">← All Challenges</a>
+      <% if (hasNext) { %>
+      <a href="/challenge/<%= nextNum %>" class="next-btn">Next Challenge →</a>
+      <% } %>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🎓 What You Learned — File Magic Numbers</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <div class="edu-page">
+    <a href="/" class="back-link">← Back to Challenges</a>
+    <img src="/images/logo.png" alt="EECS Girls Who Tech Camp" class="page-logo">
+
+    <div class="edu-card">
+      <div class="congrats">🔮</div>
+      <h1>Challenge 6 Complete!</h1>
+      <p style="color:#9090b0; margin-top:5px;">The Mystery File</p>
+      <div class="flag-reveal"><%= flag %></div>
+    </div>
+
+    <div class="edu-section">
+      <h2>📚 What You Just Learned</h2>
+      <p>You uncovered one of the coolest concepts in digital forensics: <strong>file signatures</strong>, also known as <strong>"magic numbers."</strong> Every file format has a unique sequence of bytes at the very beginning that identifies what type of file it really is — regardless of what the file extension says.</p>
+      <p>A file extension (like <code>.pdf</code>, <code>.jpg</code>, <code>.zip</code>) is just a label that the operating system uses to decide which program should open the file. But it can be changed to anything! The magic number, however, is baked into the file's actual data and reveals its true identity.</p>
+      <p>Some common magic numbers:</p>
+      <p style="font-family: 'Fira Code', monospace; font-size: 0.88em; line-height: 2;">
+        <code>%PDF</code> → PDF document &nbsp;&nbsp;|&nbsp;&nbsp;
+        <code>PK</code> → ZIP archive &nbsp;&nbsp;|&nbsp;&nbsp;
+        <code>89 50 4E 47</code> → PNG image<br>
+        <code>FF D8 FF</code> → JPEG image &nbsp;&nbsp;|&nbsp;&nbsp;
+        <code>47 49 46</code> → GIF image &nbsp;&nbsp;|&nbsp;&nbsp;
+        <code>7F 45 4C 46</code> → Linux executable
+      </p>
+    </div>
+
+    <div class="edu-section">
+      <div class="real-world-box">
+        <h3>🌍 Real-World Application</h3>
+        <p>Criminals and malware authors frequently change file extensions to disguise malicious files — a virus might be renamed from <code>.exe</code> to <code>.pdf</code> to trick someone into opening it. Forensic investigators use magic number analysis to identify the true type of every file on a seized computer. Security tools like antivirus software also check magic numbers rather than trusting extensions, which is why renaming a virus doesn't fool modern security systems.</p>
+      </div>
+
+      <div class="career-box">
+        <h3>👩‍💻 Career Connection</h3>
+        <p><strong>Malware Analysts</strong> examine suspicious files to understand what they do and how they work. <strong>Digital Forensics Examiners</strong> use tools like <code>file</code>, <code>binwalk</code>, and hex editors to analyze files recovered from crime scenes. These careers combine deep technical knowledge with detective-like puzzle-solving — and they're in incredibly high demand, with the cybersecurity workforce gap exceeding 3.4 million globally.</p>
+      </div>
+    </div>
+
+    <div class="edu-section">
+      <h2>🔑 Key Takeaways</h2>
+      <p>1. File extensions are just labels — they can be changed to anything and should never be trusted.</p>
+      <p>2. "Magic numbers" (file signatures) reveal a file's true type and can't be faked without corrupting the file.</p>
+      <p>3. Always verify file types by examining their contents, not their extension.</p>
+      <p>4. Hex editors are essential forensics tools that let you see the raw bytes of any file.</p>
+    </div>
+
+    <div class="edu-section" style="text-align: center; background: linear-gradient(135deg, rgba(196,30,58,0.08), rgba(80,160,255,0.06));">
+      <h2 style="justify-content: center;">🏆 You've completed all 6 challenges!</h2>
+      <p style="font-size: 1.05em; color: #ddd; margin: 15px 0;">You explored web security fundamentals and digital forensics techniques used by real cybersecurity professionals every day.</p>
+      <p>The skills you practiced today — inspecting source code, analyzing cookies, reading server configurations, examining metadata, decoding data, and identifying file types — are the same skills used by security researchers, forensic analysts, and ethical hackers worldwide.</p>
+      <p style="margin-top: 15px; color: #e8556d; font-weight: 500;">The cybersecurity field needs more women. You could be one of them.</p>
+      <p style="margin-top: 8px; color: #9090b0; font-size: 0.88em;">— EECS Girls Who Tech Camp</p>
+    </div>
+
+    <div class="next-btns">
+      <a href="/" class="next-btn">← Back to All Challenges</a>
+    </div>
+  </div>
+</body>
+</html>

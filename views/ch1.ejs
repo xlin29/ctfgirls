@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Challenge 1: The Hidden Secret</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <div class="challenge-page">
+    <a href="/" class="back-link">← Back to Challenges</a>
+    <img src="/images/logo.png" alt="EECS Girls Who Tech Camp" class="page-logo">
+
+    <div class="challenge-header">
+      <h1>👀 Challenge 1: The Hidden Secret</h1>
+      <p class="desc">Mei built a personal webpage and hid a secret inside it. The page looks totally normal... but is it?</p>
+    </div>
+
+    <div class="challenge-content">
+      <h2>📖 The Story</h2>
+      <div class="story-box">
+        Mei just learned web development and built her very first personal homepage. She told her best friend: "I hid a secret in my webpage, but you won't be able to see it just by looking at the page!" As a future cybersecurity expert, can you prove her wrong?
+      </div>
+
+      <!-- ✨ Mei's Personal Homepage ✨ -->
+      <div class="fake-website">
+        <div class="fake-navbar">
+          <span>🌸 Mei's Homepage</span>
+          <span>About | Blog | Gallery</span>
+        </div>
+        <div class="fake-body">
+          <h2>Welcome to My Homepage!</h2>
+          <p>Hi everyone! I'm Mei. I love coding, drawing, and playing guitar.</p>
+          <p>I built this website all by myself — pretty cool right? 😊</p>
+          <p>By the way, I hid a secret somewhere in this page. Can you find it?</p>
+          <!-- 🎯 Mei's secret is hidden here! -->
+          <!-- flag{you_can_see_my_secrets!} -->
+          <!-- Hehe, you found it! Right-click → View Page Source to see these hidden comments -->
+          <p style="display:none">This is a hidden paragraph, but it's NOT the flag!</p>
+          <div data-secret="close-but-not-the-flag" style="display:none">Keep looking!</div>
+        </div>
+      </div>
+
+      <div class="hint-box">
+        <details>
+          <summary class="hint-toggle">💡 Need a hint? Click to reveal</summary>
+          <p style="margin-top:8px;">A webpage has more than what you see on screen! Try right-clicking on the page and selecting "View Page Source" or "Inspect." Developers often use <code>&lt;!-- comments --&gt;</code> to leave notes in the code.</p>
+        </details>
+      </div>
+    </div>
+
+    <div class="flag-form">
+      <input type="text" class="flag-input" id="flagInput" placeholder="flag{...}" />
+      <button class="submit-btn" onclick="submitFlag('ch1')">Submit Flag</button>
+    </div>
+    <div class="result-msg" id="result"></div>
+  </div>
+
+  <script src="/js/submit.js"></script>
+</body>
+</html>

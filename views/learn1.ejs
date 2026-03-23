@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🎓 What You Learned — View Source</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <div class="edu-page">
+    <a href="/" class="back-link">← Back to Challenges</a>
+    <img src="/images/logo.png" alt="EECS Girls Who Tech Camp" class="page-logo">
+
+    <div class="edu-card">
+      <div class="congrats">🎉</div>
+      <h1>Challenge 1 Complete!</h1>
+      <p style="color:#9090b0; margin-top:5px;">The Hidden Secret</p>
+      <div class="flag-reveal"><%= flag %></div>
+    </div>
+
+    <div class="edu-section">
+      <h2>📚 What You Just Learned</h2>
+      <p>You discovered that <strong>every webpage has source code</strong> that anyone can read. When you right-click and choose "View Page Source" or press <code>Ctrl+U</code>, you see the raw HTML that makes up the page.</p>
+      <p>Developers use <strong>HTML comments</strong> (<code>&lt;!-- like this --&gt;</code>) to leave notes in their code. These comments are invisible on the rendered page, but they're still sitting right there in the source code for anyone to read.</p>
+      <p>Elements can also be hidden using CSS (<code>display: none</code>), but they remain in the source code too. The browser's Developer Tools (<code>F12</code>) let you inspect every single element.</p>
+    </div>
+
+    <div class="edu-section">
+      <div class="real-world-box">
+        <h3>🌍 Real-World Application</h3>
+        <p>Security researchers routinely check a website's source code for accidentally exposed information — API keys, internal URLs, developer comments with passwords, and hidden admin panels. In 2018, a major airline had customer data exposed because of debug comments left in production code. This technique is one of the first steps in <strong>reconnaissance</strong>, the information-gathering phase of security testing.</p>
+      </div>
+
+      <div class="career-box">
+        <h3>👩‍💻 Career Connection</h3>
+        <p><strong>Penetration Testers</strong> (also called "ethical hackers") use this exact technique as one of their first steps when assessing a website's security. Companies hire them to find vulnerabilities before malicious hackers do. It's a career where curiosity is your greatest tool!</p>
+      </div>
+    </div>
+
+    <div class="edu-section">
+      <h2>🔑 Key Takeaways</h2>
+      <p>1. Never hide secrets in HTML source code — it's publicly visible to everyone.</p>
+      <p>2. <code>display: none</code> only hides things visually, not from the source.</p>
+      <p>3. Developer Tools (<code>F12</code>) are incredibly powerful for inspecting any webpage.</p>
+      <p>4. Always assume that anything sent to the browser can be read by the user.</p>
+    </div>
+
+    <div class="next-btns">
+      <a href="/" class="next-btn secondary">← All Challenges</a>
+      <% if (hasNext) { %>
+      <a href="/challenge/<%= nextNum %>" class="next-btn">Next Challenge →</a>
+      <% } %>
+    </div>
+  </div>
+</body>
+</html>

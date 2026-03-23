@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EECS Girls Who Tech Camp — CTF Challenge</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <img src="/images/logo.png" alt="EECS Girls Who Tech Camp" class="logo">
+      <h1>Capture The Flag Challenge</h1>
+      <p class="subtitle">Become a cybersecurity hero — 6 fun challenges await!</p>
+      <div class="scoreboard">
+        <span class="score-label">Solved</span>
+        <span class="score-number" id="score"><%= solved.length %></span>
+        <span class="score-total">/ 6</span>
+        <div class="progress-bar">
+          <div class="progress-fill" style="width: <%= (solved.length / 6 * 100) %>%"></div>
+        </div>
+      </div>
+      <br>
+      <a href="/reset" class="reset-btn">Reset Progress</a>
+    </header>
+
+    <div class="challenges-grid">
+
+      <div class="challenge-card <%= solved.includes('ch1') ? 'solved' : '' %>">
+        <div class="card-badge">Web</div>
+        <div class="card-difficulty">⭐</div>
+        <h3>👀 The Hidden Secret</h3>
+        <p>Mei built a personal webpage and hid a secret inside. But you can't see anything on the page... can you find it?</p>
+        <p class="hint-text">Hint: There's more to a webpage than meets the eye</p>
+        <a href="/challenge/1" class="play-btn">Start Challenge →</a>
+      </div>
+
+      <div class="challenge-card <%= solved.includes('ch2') ? 'solved' : '' %>">
+        <div class="card-badge">Web</div>
+        <div class="card-difficulty">⭐</div>
+        <h3>🍪 Cookie Monster</h3>
+        <p>Someone hid a secret inside your browser's "cookies." Do you know how to peek inside them?</p>
+        <p class="hint-text">Hint: F12 is your best friend</p>
+        <a href="/challenge/2" class="play-btn">Start Challenge →</a>
+      </div>
+
+      <div class="challenge-card <%= solved.includes('ch3') ? 'solved' : '' %>">
+        <div class="card-badge">Web</div>
+        <div class="card-difficulty">⭐⭐</div>
+        <h3>🤖 The Robot's Secret</h3>
+        <p>Every website has a special file that tells search engines which pages to stay away from... but you're not a robot, right?</p>
+        <p class="hint-text">Hint: The filename is related to "robots"</p>
+        <a href="/challenge/3" class="play-btn">Start Challenge →</a>
+      </div>
+
+      <div class="challenge-card <%= solved.includes('ch4') ? 'solved' : '' %>">
+        <div class="card-badge forensics">Forensics</div>
+        <div class="card-difficulty">⭐⭐</div>
+        <h3>📸 Secrets in a Photo</h3>
+        <p>A seemingly ordinary photo — but digital detectives know that every photo "talks." Can you find its hidden message?</p>
+        <p class="hint-text">Hint: Photos carry invisible information beyond the picture</p>
+        <a href="/challenge/4" class="play-btn">Start Challenge →</a>
+      </div>
+
+      <div class="challenge-card <%= solved.includes('ch5') ? 'solved' : '' %>">
+        <div class="card-badge forensics">Forensics</div>
+        <div class="card-difficulty">⭐⭐</div>
+        <h3>📋 Log Detective</h3>
+        <p>A server was attacked! Analyze the access logs and find the flag the hacker left behind in a suspicious request.</p>
+        <p class="hint-text">Hint: Read every line carefully — some requests look fishy...</p>
+        <a href="/challenge/5" class="play-btn">Start Challenge →</a>
+      </div>
+
+      <div class="challenge-card <%= solved.includes('ch6') ? 'solved' : '' %>">
+        <div class="card-badge forensics">Forensics</div>
+        <div class="card-difficulty">⭐⭐⭐</div>
+        <h3>🔮 The Mystery File</h3>
+        <p>You received a mysterious file with a <code>.dat</code> extension — but it's actually another file type in disguise! Can you uncover its true identity?</p>
+        <p class="hint-text">Hint: The first few bytes of a file reveal its true nature</p>
+        <a href="/challenge/6" class="play-btn">Start Challenge →</a>
+      </div>
+
+    </div>
+
+    <footer>
+      <p>Every answer follows the format: <code>flag{...}</code></p>
+      <p>Stuck? Try searching the web for the concepts mentioned in each challenge!</p>
+      <p style="margin-top: 12px; opacity: 0.5;">EECS Girls Who Tech Camp</p>
+    </footer>
+  </div>
+
+  <script>
+    const solved = <%= solved.length %>;
+    if (solved === 6) {
+      document.querySelector('.subtitle').textContent = '🎊 All challenges complete — you are a true cybersecurity hero! 🎊';
+    }
+  </script>
+</body>
+</html>
