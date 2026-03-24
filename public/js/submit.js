@@ -20,7 +20,7 @@ async function submitFlag(challenge) {
 
     if (data.success) {
       // Keep the form visible so they can resubmit
-      flagInput.style.borderColor = '#50c878';
+      flagInput.style.borderColor = '#2d9e5a';
       resultDiv.className = 'result-msg success';
       resultDiv.style.display = 'block';
       resultDiv.textContent = '';
@@ -63,8 +63,8 @@ function showCelebration(learnMoreUrl) {
         100% { opacity: 1; transform: scale(1); }
       }
       @keyframes pulseGlow {
-        0%, 100% { box-shadow: 0 0 30px rgba(196,30,58,0.3); }
-        50% { box-shadow: 0 0 60px rgba(196,30,58,0.6); }
+        0%, 100% { box-shadow: 0 0 30px rgba(152,30,50,0.3); }
+        50% { box-shadow: 0 0 60px rgba(152,30,50,0.6); }
       }
       @keyframes slideUp {
         0% { opacity: 0; transform: translateY(30px); }
@@ -77,7 +77,7 @@ function showCelebration(learnMoreUrl) {
       }
       .celebrate-overlay {
         position: fixed; inset: 0; z-index: 10000;
-        background: rgba(10,10,20,0.92);
+        background: rgba(20,15,15,0.92);
         backdrop-filter: blur(8px);
         display: flex; align-items: center; justify-content: center;
         animation: celebrateIn 0.5s ease forwards;
@@ -92,17 +92,17 @@ function showCelebration(learnMoreUrl) {
         display: block; margin-bottom: 15px;
       }
       .celebrate-title {
-        font-size: 2.8em; font-weight: 800; color: #fff;
+        font-size: 2.8em; font-weight: 800; color: #ffffff;
         margin-bottom: 12px;
         animation: slideUp 0.5s ease 0.5s both;
       }
       .celebrate-sub {
-        font-size: 1.2em; color: #9090b0; margin-bottom: 35px;
+        font-size: 1.2em; color: #c0c0c8; margin-bottom: 35px;
         animation: slideUp 0.5s ease 0.65s both;
       }
       .celebrate-btn {
         display: inline-block; padding: 16px 40px;
-        background: linear-gradient(135deg, #C41E3A, #a01830);
+        background: linear-gradient(135deg, #981E32, #751526);
         color: white; text-decoration: none; border-radius: 30px;
         font-size: 1.15em; font-weight: 600; letter-spacing: 0.5px;
         animation: slideUp 0.5s ease 0.8s both, pulseGlow 2s ease-in-out 1.5s infinite;
@@ -169,7 +169,7 @@ function showCelebration(learnMoreUrl) {
 }
 
 function launchConfetti(count) {
-  const colors = ['#C41E3A', '#e8556d', '#50c878', '#60b0ff', '#f5a623', '#a855f7', '#ff6b9d', '#ffd700'];
+  const colors = ['#981E32', '#bf4055', '#2d9e5a', '#2864b4', '#d4a017', '#8b45a6', '#e8556d', '#ffd700'];
   for (let i = 0; i < count; i++) {
     const confetti = document.createElement('div');
     const size = Math.random() * 12 + 6;

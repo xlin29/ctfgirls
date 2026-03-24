@@ -10,7 +10,7 @@
   display: block;
   width: 180px;
   margin: 0 auto 30px;
-  opacity: 0.6;
+  opacity: 0.7;
 }
 
 /* Hero section */
@@ -29,27 +29,27 @@
 .learn-hero h1 {
   font-size: 3em;
   font-weight: 800;
-  color: #fff;
+  color: #1a1a1a;
   margin-bottom: 6px;
   letter-spacing: -0.5px;
 }
 
 .hero-subtitle {
   font-size: 1.35em;
-  color: #8080a0;
+  color: #5E6A71;
   margin-bottom: 22px;
 }
 
 .flag-badge {
   display: inline-block;
-  background: linear-gradient(135deg, rgba(196,30,58,0.15), rgba(196,30,58,0.08));
-  border: 1.5px solid rgba(196,30,58,0.3);
+  background: rgba(152,30,50,0.08);
+  border: 1.5px solid rgba(152,30,50,0.2);
   border-radius: 14px;
   padding: 14px 32px;
   font-family: 'Fira Code', monospace;
   font-size: 1.4em;
   font-weight: 600;
-  color: #e8556d;
+  color: #981E32;
   letter-spacing: 0.5px;
 }
 
@@ -94,7 +94,7 @@
 .learn-card h3 {
   font-size: 1.45em;
   font-weight: 700;
-  color: #fff;
+  color: #1a1a1a;
   margin-bottom: 10px;
 }
 
@@ -105,7 +105,7 @@
 }
 
 .learn-card code {
-  background: rgba(255,255,255,0.08);
+  background: rgba(0,0,0,0.05);
   padding: 1px 7px;
   border-radius: 4px;
   font-family: 'Fira Code', monospace;
@@ -113,49 +113,49 @@
 }
 
 .learn-card strong {
-  color: #fff;
+  color: #1a1a1a;
 }
 
-/* Skill card — red/pink accent */
+/* Skill card — crimson accent */
 .skill-card {
-  background: linear-gradient(145deg, rgba(196,30,58,0.12), rgba(196,30,58,0.04));
-  border: 1px solid rgba(196,30,58,0.18);
+  background: rgba(152,30,50,0.06);
+  border: 1px solid rgba(152,30,50,0.12);
 }
-.skill-card h2 { color: #e8556d; }
-.skill-card p { color: #c0a0aa; }
-.skill-card code { color: #e8556d; }
+.skill-card h2 { color: #981E32; }
+.skill-card p { color: #5a4448; }
+.skill-card code { color: #981E32; }
 
 /* Real world card — green accent */
 .world-card {
-  background: linear-gradient(145deg, rgba(80,200,120,0.1), rgba(80,200,120,0.03));
-  border: 1px solid rgba(80,200,120,0.15);
+  background: rgba(45,158,90,0.06);
+  border: 1px solid rgba(45,158,90,0.12);
 }
-.world-card h2 { color: #50c878; }
-.world-card p { color: #90b8a0; }
-.world-card code { color: #50c878; }
+.world-card h2 { color: #2d9e5a; }
+.world-card p { color: #3a6a4a; }
+.world-card code { color: #2d9e5a; }
 
 /* Career card — blue accent */
 .career-card {
-  background: linear-gradient(145deg, rgba(80,160,255,0.1), rgba(80,160,255,0.03));
-  border: 1px solid rgba(80,160,255,0.15);
+  background: rgba(40,100,180,0.06);
+  border: 1px solid rgba(40,100,180,0.12);
 }
-.career-card h2 { color: #60b0ff; }
-.career-card p { color: #90a8c0; }
+.career-card h2 { color: #2864b4; }
+.career-card p { color: #3a5570; }
 
 /* Key takeaway card — gold accent */
 .key-card {
-  background: linear-gradient(145deg, rgba(245,166,35,0.1), rgba(245,166,35,0.03));
-  border: 1px solid rgba(245,166,35,0.15);
+  background: rgba(200,140,20,0.06);
+  border: 1px solid rgba(200,140,20,0.12);
 }
-.key-card h2 { color: #f5a623; }
-.key-card p { color: #b8a880; }
-.key-card code { color: #f5a623; }
+.key-card h2 { color: #b8860b; }
+.key-card p { color: #6a5830; }
+.key-card code { color: #b8860b; }
 
 /* Completion banner (ch6 only) */
 .completion-banner {
   text-align: center;
-  background: linear-gradient(135deg, rgba(196,30,58,0.08), rgba(80,160,255,0.06), rgba(245,166,35,0.05));
-  border: 1px solid rgba(196,30,58,0.15);
+  background: linear-gradient(135deg, rgba(152,30,50,0.05), rgba(40,100,180,0.04), rgba(200,140,20,0.03));
+  border: 1px solid rgba(152,30,50,0.12);
   border-radius: 22px;
   padding: 40px 35px;
   margin-bottom: 30px;
@@ -170,26 +170,26 @@
 .completion-banner h2 {
   font-size: 1.9em;
   font-weight: 700;
-  color: #fff;
+  color: #1a1a1a;
   margin-bottom: 10px;
 }
 
 .completion-banner p {
-  color: #9090b0;
+  color: #5E6A71;
   font-size: 1.15em;
   line-height: 1.7;
   margin-bottom: 6px;
 }
 
 .completion-cta {
-  color: #e8556d !important;
+  color: #981E32 !important;
   font-weight: 600;
   font-size: 1.2em !important;
   margin-top: 12px !important;
 }
 
 .completion-sig {
-  color: #666 !important;
+  color: #999 !important;
   font-size: 1.02em !important;
   margin-top: 8px !important;
 }
@@ -216,19 +216,19 @@
 }
 
 .nav-btn.primary {
-  background: linear-gradient(135deg, #C41E3A, #a01830);
+  background: linear-gradient(135deg, #981E32, #751526);
   color: white;
 }
 
 .nav-btn.secondary {
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,255,255,0.1);
-  color: #999;
+  background: #fff;
+  border: 1px solid #d0cdc8;
+  color: #5E6A71;
 }
 
 .nav-btn.secondary:hover {
-  border-color: rgba(196,30,58,0.3);
-  color: #ddd;
+  border-color: rgba(152,30,50,0.4);
+  color: #981E32;
 }
 
 /* Animations */

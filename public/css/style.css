@@ -9,8 +9,8 @@
 body {
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
   font-size: 20px;
-  background: linear-gradient(135deg, #0f0f1a 0%, #1a1025 40%, #0d1b2a 100%);
-  color: #e0e0e0;
+  background: #f4f2ed;
+  color: #2a2a2a;
   min-height: 100vh;
 }
 
@@ -30,13 +30,13 @@ header {
   width: 420px;
   max-width: 92%;
   margin-bottom: 14px;
-  filter: drop-shadow(0 2px 10px rgba(196,30,58,0.2));
+  filter: drop-shadow(0 2px 10px rgba(152,30,50,0.15));
 }
 
 header h1 {
   font-size: 2.8em;
   font-weight: 700;
-  background: linear-gradient(135deg, #C41E3A, #e8556d, #C41E3A);
+  background: linear-gradient(135deg, #981E32, #bf4055, #981E32);
   background-size: 200% 200%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -51,7 +51,7 @@ header h1 {
 
 .subtitle {
   font-size: 1.2em;
-  color: #9090b0;
+  color: #5E6A71;
   font-weight: 300;
   margin-bottom: 24px;
 }
@@ -61,15 +61,15 @@ header h1 {
   display: inline-flex;
   align-items: center;
   gap: 12px;
-  background: rgba(196,30,58,0.06);
-  border: 1px solid rgba(196,30,58,0.2);
+  background: rgba(152,30,50,0.06);
+  border: 1px solid rgba(152,30,50,0.15);
   border-radius: 30px;
   padding: 14px 32px;
   margin-bottom: 14px;
 }
 
 .score-label {
-  color: #9090b0;
+  color: #5E6A71;
   font-size: 1em;
   font-weight: 500;
   text-transform: uppercase;
@@ -79,20 +79,20 @@ header h1 {
 .score-number {
   font-size: 2.4em;
   font-weight: 700;
-  color: #C41E3A;
+  color: #981E32;
   font-family: 'Fira Code', monospace;
 }
 
 .score-total {
   font-size: 1.4em;
-  color: #555;
+  color: #999;
   font-family: 'Fira Code', monospace;
 }
 
 .progress-bar {
   width: 140px;
   height: 8px;
-  background: rgba(255,255,255,0.06);
+  background: rgba(0,0,0,0.08);
   border-radius: 4px;
   overflow: hidden;
   margin-left: 12px;
@@ -100,7 +100,7 @@ header h1 {
 
 .progress-fill {
   height: 100%;
-  background: linear-gradient(90deg, #C41E3A, #e8556d);
+  background: linear-gradient(90deg, #981E32, #bf4055);
   border-radius: 4px;
   transition: width 0.6s ease;
 }
@@ -108,14 +108,14 @@ header h1 {
 .reset-btn {
   display: inline-block;
   margin-top: 10px;
-  color: #666;
+  color: #999;
   text-decoration: none;
   font-size: 0.9em;
   transition: color 0.2s;
 }
 
 .reset-btn:hover {
-  color: #C41E3A;
+  color: #981E32;
 }
 
 /* ============ CHALLENGE GRID ============ */
@@ -127,22 +127,23 @@ header h1 {
 }
 
 .challenge-card {
-  background: rgba(255,255,255,0.03);
-  border: 1px solid rgba(255,255,255,0.06);
+  background: #fff;
+  border: 1px solid #e0ddd8;
   border-radius: 18px;
   padding: 28px;
   position: relative;
   transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
 }
 
 .challenge-card:hover {
   transform: translateY(-5px);
-  border-color: rgba(196,30,58,0.35);
-  box-shadow: 0 12px 35px rgba(196,30,58,0.08);
+  border-color: rgba(152,30,50,0.35);
+  box-shadow: 0 12px 35px rgba(152,30,50,0.1);
 }
 
 .challenge-card.solved {
-  border-color: rgba(80,200,120,0.35);
+  border-color: rgba(80,200,120,0.5);
 }
 
 .challenge-card.solved::after {
@@ -152,14 +153,14 @@ header h1 {
   right: 18px;
   font-size: 0.8em;
   font-weight: 600;
-  color: #50c878;
+  color: #2d9e5a;
   letter-spacing: 1px;
 }
 
 .card-badge {
   display: inline-block;
-  background: rgba(196,30,58,0.15);
-  color: #e8556d;
+  background: rgba(152,30,50,0.1);
+  color: #981E32;
   padding: 4px 16px;
   border-radius: 20px;
   font-size: 0.8em;
@@ -170,8 +171,8 @@ header h1 {
 }
 
 .card-badge.forensics {
-  background: rgba(80,160,255,0.12);
-  color: #60b0ff;
+  background: rgba(40,100,180,0.1);
+  color: #2864b4;
 }
 
 .card-difficulty {
@@ -183,29 +184,29 @@ header h1 {
 
 .challenge-card h3 {
   font-size: 1.35em;
-  color: #fff;
+  color: #1a1a1a;
   font-weight: 600;
   margin-bottom: 12px;
 }
 
 .challenge-card p {
   font-size: 1.02em;
-  color: #9090b0;
+  color: #5E6A71;
   line-height: 1.7;
   margin-bottom: 8px;
 }
 
 .hint-text {
   font-size: 0.9em !important;
-  color: #C41E3A !important;
-  opacity: 0.6;
+  color: #981E32 !important;
+  opacity: 0.7;
 }
 
 .play-btn {
   display: inline-block;
   margin-top: 16px;
   padding: 11px 26px;
-  background: linear-gradient(135deg, #C41E3A, #a01830);
+  background: linear-gradient(135deg, #981E32, #751526);
   color: white;
   text-decoration: none;
   border-radius: 24px;
@@ -217,20 +218,20 @@ header h1 {
 
 .play-btn:hover {
   transform: scale(1.06);
-  box-shadow: 0 4px 18px rgba(196,30,58,0.3);
+  box-shadow: 0 4px 18px rgba(152,30,50,0.3);
 }
 
 /* ============ FOOTER ============ */
 footer {
   text-align: center;
   padding: 22px;
-  color: #555;
+  color: #999;
   font-size: 1em;
 }
 
 footer code {
-  background: rgba(196,30,58,0.1);
-  color: #e8556d;
+  background: rgba(152,30,50,0.08);
+  color: #981E32;
   padding: 3px 10px;
   border-radius: 5px;
   font-family: 'Fira Code', monospace;
@@ -250,7 +251,7 @@ footer p {
 
 .back-link {
   display: inline-block;
-  color: #8080a0;
+  color: #5E6A71;
   text-decoration: none;
   margin-bottom: 24px;
   font-size: 1.05em;
@@ -258,14 +259,14 @@ footer p {
 }
 
 .back-link:hover {
-  color: #C41E3A;
+  color: #981E32;
 }
 
 .challenge-page .page-logo {
   display: block;
   width: 260px;
   margin: 0 auto 24px;
-  opacity: 0.7;
+  opacity: 0.8;
 }
 
 .challenge-header {
@@ -274,56 +275,57 @@ footer p {
 
 .challenge-header h1 {
   font-size: 2.2em;
-  color: #fff;
+  color: #1a1a1a;
   font-weight: 700;
   margin-bottom: 14px;
 }
 
 .challenge-header .desc {
-  color: #9090b0;
+  color: #5E6A71;
   font-size: 1.2em;
   line-height: 1.7;
 }
 
 .challenge-content {
-  background: rgba(255,255,255,0.03);
-  border: 1px solid rgba(255,255,255,0.06);
+  background: #fff;
+  border: 1px solid #e0ddd8;
   border-radius: 18px;
   padding: 36px;
   margin-bottom: 28px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
 }
 
 .challenge-content h2 {
   font-size: 1.4em;
-  color: #C41E3A;
+  color: #981E32;
   font-weight: 600;
   margin-bottom: 18px;
 }
 
 .story-box {
-  background: rgba(196,30,58,0.04);
-  border-left: 3px solid #C41E3A;
+  background: rgba(152,30,50,0.04);
+  border-left: 3px solid #981E32;
   padding: 20px 26px;
   border-radius: 0 12px 12px 0;
   margin-bottom: 24px;
   font-size: 1.15em;
   line-height: 1.85;
-  color: #b0b0c8;
+  color: #444;
 }
 
 .hint-box {
-  background: rgba(80,160,255,0.04);
-  border: 1px dashed rgba(80,160,255,0.2);
+  background: rgba(40,100,180,0.04);
+  border: 1px dashed rgba(40,100,180,0.25);
   border-radius: 12px;
   padding: 18px 24px;
   margin-top: 20px;
   font-size: 1.08em;
-  color: #7aa8d0;
+  color: #2864b4;
 }
 
 .hint-toggle {
   cursor: pointer;
-  color: #60b0ff;
+  color: #2864b4;
   font-weight: 500;
   font-size: 1.12em;
 }
@@ -338,10 +340,10 @@ footer p {
 .flag-input {
   flex: 1;
   padding: 16px 22px;
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.1);
+  background: #f9f8f6;
+  border: 1px solid #d0cdc8;
   border-radius: 14px;
-  color: #fff;
+  color: #1a1a1a;
   font-size: 1.15em;
   font-family: 'Fira Code', monospace;
   outline: none;
@@ -349,16 +351,16 @@ footer p {
 }
 
 .flag-input:focus {
-  border-color: #C41E3A;
+  border-color: #981E32;
 }
 
 .flag-input::placeholder {
-  color: #444;
+  color: #aaa;
 }
 
 .submit-btn {
   padding: 16px 34px;
-  background: linear-gradient(135deg, #C41E3A, #a01830);
+  background: linear-gradient(135deg, #981E32, #751526);
   color: white;
   border: none;
   border-radius: 14px;
@@ -381,15 +383,15 @@ footer p {
 }
 
 .result-msg.success {
-  background: rgba(80,200,120,0.08);
-  color: #50c878;
-  border: 1px solid rgba(80,200,120,0.25);
+  background: rgba(45,158,90,0.08);
+  color: #2d9e5a;
+  border: 1px solid rgba(45,158,90,0.25);
 }
 
 .result-msg.error {
-  background: rgba(196,30,58,0.08);
-  color: #e8556d;
-  border: 1px solid rgba(196,30,58,0.25);
+  background: rgba(152,30,50,0.06);
+  color: #981E32;
+  border: 1px solid rgba(152,30,50,0.2);
 }
 
 /* ============ FAKE WEBSITE ============ */
@@ -399,11 +401,11 @@ footer p {
   border-radius: 14px;
   overflow: hidden;
   margin: 18px 0;
-  box-shadow: 0 2px 15px rgba(0,0,0,0.2);
+  box-shadow: 0 2px 15px rgba(0,0,0,0.1);
 }
 
 .fake-navbar {
-  background: #C41E3A;
+  background: #981E32;
   color: white;
   padding: 14px 24px;
   display: flex;
@@ -431,15 +433,15 @@ footer p {
 
 /* ============ TOOLS SECTION ============ */
 .tools-section {
-  background: rgba(80,160,255,0.04);
-  border: 1px solid rgba(80,160,255,0.12);
+  background: rgba(40,100,180,0.04);
+  border: 1px solid rgba(40,100,180,0.15);
   border-radius: 14px;
   padding: 22px;
   margin: 20px 0;
 }
 
 .tools-section h3 {
-  color: #60b0ff;
+  color: #2864b4;
   font-size: 1.2em;
   font-weight: 600;
   margin-bottom: 14px;
@@ -452,30 +454,30 @@ footer p {
 
 .tools-section li {
   padding: 6px 0;
-  color: #9090b0;
+  color: #5E6A71;
   font-size: 1.08em;
   line-height: 1.7;
 }
 
 .tools-section li::before {
   content: "› ";
-  color: #60b0ff;
+  color: #2864b4;
   font-weight: bold;
 }
 
 .tools-section code {
-  background: rgba(255,255,255,0.06);
+  background: rgba(152,30,50,0.06);
   padding: 2px 8px;
   border-radius: 5px;
   font-family: 'Fira Code', monospace;
   font-size: 0.92em;
-  color: #e8556d;
+  color: #981E32;
 }
 
 /* ============ LOG VIEWER ============ */
 .log-viewer {
-  background: #0d1117;
-  border: 1px solid #21262d;
+  background: #1a1a2e;
+  border: 1px solid #2a2a3e;
   border-radius: 12px;
   padding: 18px;
   font-family: 'Fira Code', monospace;
@@ -492,7 +494,7 @@ footer p {
 .download-btn {
   display: inline-block;
   padding: 14px 30px;
-  background: linear-gradient(135deg, #50a0ff, #3070c0);
+  background: linear-gradient(135deg, #2864b4, #1a4a8a);
   color: white;
   text-decoration: none;
   border-radius: 14px;
@@ -520,8 +522,8 @@ footer p {
 }
 
 .edu-card {
-  background: linear-gradient(135deg, rgba(196,30,58,0.06), rgba(80,160,255,0.04));
-  border: 1px solid rgba(196,30,58,0.15);
+  background: linear-gradient(135deg, rgba(152,30,50,0.05), rgba(40,100,180,0.03));
+  border: 1px solid rgba(152,30,50,0.12);
   border-radius: 22px;
   padding: 45px;
   text-align: center;
@@ -535,35 +537,36 @@ footer p {
 
 .edu-card h1 {
   font-size: 1.9em;
-  color: #fff;
+  color: #1a1a1a;
   font-weight: 700;
   margin-bottom: 12px;
 }
 
 .edu-card .flag-reveal {
   display: inline-block;
-  background: rgba(196,30,58,0.12);
-  border: 1px solid rgba(196,30,58,0.25);
+  background: rgba(152,30,50,0.08);
+  border: 1px solid rgba(152,30,50,0.2);
   border-radius: 12px;
   padding: 12px 28px;
   font-family: 'Fira Code', monospace;
   font-size: 1.25em;
-  color: #e8556d;
+  color: #981E32;
   margin: 18px 0;
 }
 
 .edu-section {
-  background: rgba(255,255,255,0.03);
-  border: 1px solid rgba(255,255,255,0.06);
+  background: #fff;
+  border: 1px solid #e0ddd8;
   border-radius: 18px;
   padding: 34px;
   margin-bottom: 22px;
   text-align: left;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
 }
 
 .edu-section h2 {
   font-size: 1.35em;
-  color: #C41E3A;
+  color: #981E32;
   font-weight: 600;
   margin-bottom: 18px;
   display: flex;
@@ -572,63 +575,63 @@ footer p {
 }
 
 .edu-section p {
-  color: #b0b0c8;
+  color: #444;
   font-size: 1.05em;
   line-height: 1.85;
   margin-bottom: 12px;
 }
 
 .edu-section strong {
-  color: #ddd;
+  color: #1a1a1a;
 }
 
 .edu-section code {
-  background: rgba(255,255,255,0.06);
+  background: rgba(152,30,50,0.06);
   padding: 2px 8px;
   border-radius: 5px;
   font-family: 'Fira Code', monospace;
   font-size: 0.92em;
-  color: #e8556d;
+  color: #981E32;
 }
 
 .real-world-box {
-  background: rgba(80,200,120,0.05);
-  border-left: 4px solid #50c878;
+  background: rgba(45,158,90,0.05);
+  border-left: 4px solid #2d9e5a;
   padding: 18px 24px;
   border-radius: 0 12px 12px 0;
   margin: 18px 0;
 }
 
 .real-world-box h3 {
-  color: #50c878;
+  color: #2d9e5a;
   font-size: 1.1em;
   font-weight: 600;
   margin-bottom: 10px;
 }
 
 .real-world-box p {
-  color: #90b0a0;
+  color: #4a6a55;
   font-size: 1.02em;
   line-height: 1.8;
 }
 
 .career-box {
-  background: rgba(196,30,58,0.04);
-  border-left: 4px solid #C41E3A;
+  background: rgba(152,30,50,0.04);
+  border-left: 4px solid #981E32;
   padding: 18px 24px;
   border-radius: 0 12px 12px 0;
   margin: 18px 0;
 }
 
 .career-box h3 {
-  color: #e8556d;
+  color: #981E32;
   font-size: 1.1em;
   font-weight: 600;
   margin-bottom: 10px;
 }
 
 .career-box p {
-  color: #b0a0b8;
+  color: #5E6A71;
   font-size: 1.02em;
   line-height: 1.8;
 }
@@ -643,7 +646,7 @@ footer p {
 
 .next-btn {
   padding: 12px 26px;
-  background: linear-gradient(135deg, #C41E3A, #a01830);
+  background: linear-gradient(135deg, #981E32, #751526);
   color: white;
   text-decoration: none;
   border-radius: 24px;
@@ -657,12 +660,12 @@ footer p {
 }
 
 .next-btn.secondary {
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.12);
-  color: #aaa;
+  background: #fff;
+  border: 1px solid #d0cdc8;
+  color: #5E6A71;
 }
 
 .next-btn.secondary:hover {
-  border-color: rgba(196,30,58,0.3);
-  color: #ddd;
+  border-color: rgba(152,30,50,0.4);
+  color: #981E32;
 }
