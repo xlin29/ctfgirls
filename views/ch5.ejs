@@ -3,47 +3,59 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Challenge 5: Log Detective</title>
+  <title>Day 5: Polluted Search</title>
   <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
   <div class="challenge-page">
-    <a href="/" class="back-link">← Back to Challenges</a>
-    <img src="/images/logo.png" alt="EECS Girls Who Tech Camp" class="page-logo">
+    <a href="/" class="back-link">← Back to engagement</a>
+    <div class="brand brand-sm">
+      <span class="brand-mark">⛨</span>
+      <span>CySER Workshop · Skyway engagement</span>
+    </div>
 
     <div class="challenge-header">
-      <h1>📋 Challenge 5: Log Detective</h1>
-      <p class="desc">A server was attacked! Can you spot the hacker's trail in these logs?</p>
+      <h1>Day 5 · Polluted Search</h1>
+      <p class="desc">Skyway's search bar pastes your query into the page unescaped. Their marketing team also dropped a promo-code cookie on every visitor. Combine the two.</p>
+    </div>
+
+    <div class="story-box">
+      <strong>The story.</strong> Reflected XSS is when user input gets rendered into HTML without escaping. Whatever
+      you put in <code>?q=...</code> becomes part of the page. JavaScript you inject runs with the page's privileges ,
+      which means it can read every cookie that isn't <code>HttpOnly</code>. Skyway's marketing dropped a promo code
+      into your browser as <code>_marketing_promo</code>. That's the flag. Use XSS to extract it.
     </div>
 
     <div class="challenge-content">
-      <div class="story-box">
-        The web admin noticed weird activity and pulled the server logs. Every request anyone makes gets recorded here. One of these requests has a <strong>secret message</strong> hidden in the URL — encoded so it's not obvious. Can you find and decode it?
+      <div class="fake-website">
+        <div class="fake-navbar">
+          <span>🛩️ Skyway · Search</span>
+          <span>Home · Flights · Help</span>
+        </div>
+        <div class="fake-body">
+          <h2>Find a flight, a city, a fare class.</h2>
+          <form method="GET" action="/challenge/5" style="display:flex;gap:10px;max-width:520px">
+            <input name="q" placeholder="search the site…" class="flag-input" value="<%= q == null ? '' : q %>">
+            <button class="submit-btn">Search</button>
+          </form>
+          <% if (q != null) { %>
+            <hr style="margin:20px 0;border:none;border-top:1px solid #ddd">
+            <p style="color:#888">You searched for:</p>
+            <!-- VULNERABLE: reflects q raw -->
+            <div style="font-size:1.2em; padding:10px 14px; background:#fdf7f8; border-left:3px solid #981E32; border-radius:0 6px 6px 0;">
+              <%- q %>
+            </div>
+            <hr style="margin:20px 0;border:none;border-top:1px solid #ddd">
+            <p style="opacity:0.6">No results matched your search. Try a different airport code.</p>
+          <% } %>
+        </div>
       </div>
 
-      <h2 style="margin-top: 20px;">📜 Server Access Log</h2>
-      <div class="log-viewer"><%= logContent %></div>
-
-      <div class="tools-section">
-        <h3>🛠️ What to look for</h3>
-        <ul>
-          <li>Scan for unusual URL parameters — anything that looks like a long random string</li>
-          <li>It might be <strong>Base64</strong> encoded (letters + numbers, possibly ending in <code>=</code>)</li>
-          <li>Search <strong>"Base64 decode online"</strong> to decode it!</li>
-        </ul>
-      </div>
-
-      <div class="hint-box">
-        <details>
-          <summary class="hint-toggle">💡 Need a hint?</summary>
-          <p style="margin-top:8px;">Look at the <code>/search?q=</code> request from IP <code>10.0.0.55</code>. That long string after <code>q=</code> is Base64. Decode it!</p>
-        </details>
-      </div>
     </div>
 
     <div class="flag-form">
       <input type="text" class="flag-input" id="flagInput" placeholder="flag{...}" />
-      <button class="submit-btn" onclick="submitFlag('ch5')">Submit Flag</button>
+      <button class="submit-btn" onclick="submitFlag('ch5')">Submit finding</button>
     </div>
     <div class="result-msg" id="result"></div>
   </div>

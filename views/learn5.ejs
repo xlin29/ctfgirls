@@ -3,56 +3,57 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>You Learned: Log Analysis</title>
+  <title>Finding 5 · Reflected XSS</title>
   <link rel="stylesheet" href="/css/style.css">
   <link rel="stylesheet" href="/css/learn.css">
 </head>
 <body>
   <div class="learn-page">
-    <img src="/images/logo.png" alt="EECS Girls Who Tech Camp" class="learn-logo">
+    <div class="brand brand-sm" style="margin-bottom: 24px;">
+      <span class="brand-mark">⛨</span>
+      <span>CySER Workshop · Skyway engagement</span>
+    </div>
 
     <div class="learn-hero">
-      <div class="hero-icon">📋</div>
-      <h1>Challenge 5 Complete!</h1>
-      <p class="hero-subtitle">Log Detective</p>
+      <div class="hero-icon">🧪</div>
+      <h1>Finding 5 confirmed</h1>
+      <p class="hero-subtitle">Day 5 · Reflected XSS + Cookie Exfiltration</p>
       <div class="flag-badge"><%= flag %></div>
     </div>
 
     <div class="learn-grid">
       <div class="learn-card skill-card">
-        <div class="card-icon">🔍</div>
-        <h2>Skill Unlocked</h2>
-        <h3>Log Analysis + Base64</h3>
-        <p>You analyzed server logs to spot suspicious patterns, then decoded a Base64 string. Base64 is <strong>encoding, not encryption</strong> — it's trivially reversible!</p>
+        <div class="card-icon">📚</div>
+        <h2>The vulnerability</h2>
+        <h3>HTML injection from user input</h3>
+        <p>The server pasted your search query into the page without escaping <code>&lt;</code>, <code>&gt;</code>, or <code>"</code>. Your <code>&lt;script&gt;</code> tag became real JavaScript with full access to the page's DOM, cookies, and any same-origin endpoint.</p>
       </div>
 
       <div class="learn-card world-card">
-        <div class="card-icon">🌍</div>
-        <h2>Real World</h2>
-        <h3>Incident Response</h3>
-        <p>When a company gets hacked, the security team's first move is examining logs. Tools like Splunk and ELK Stack monitor millions of log entries in real time.</p>
+        <div class="card-icon">📰</div>
+        <h2>Seen in the wild</h2>
+        <h3>British Airways · 2018</h3>
+        <p>An XSS-led skimmer on British Airways' payment page leaked the card details of 380,000 customers. ICO fined them £20M. XSS isn't a popup-alert prank. It's the entry point for session theft, drive-by malware, and supply-chain attacks. Most major sites still have reflected XSS lurking in some corner.</p>
       </div>
 
       <div class="learn-card career-card">
-        <div class="card-icon">👩‍💻</div>
-        <h2>Career Path</h2>
-        <h3>SOC Analyst</h3>
-        <p>Security Operations Center analysts monitor networks 24/7, detecting and responding to threats. High demand, excellent pay, and curiosity matters more than degrees.</p>
+        <div class="card-icon">🛠️</div>
+        <h2>How to fix it</h2>
+        <h3>Context-aware escaping + CSP</h3>
+        <p>Use templating that escapes by default (<code>&lt;%= %&gt;</code> in EJS, <code>{{ }}</code> in most frameworks). Mark sensitive cookies <code>HttpOnly</code> so JS can't read them. Add a strict Content-Security-Policy that disallows inline scripts. Defense in depth. Any one of these alone catches the rest.</p>
       </div>
 
       <div class="learn-card key-card">
         <div class="card-icon">🔑</div>
-        <h2>Key Takeaway</h2>
-        <h3>Patterns Tell Stories</h3>
-        <p>Suspicious patterns — probing <code>/admin</code>, <code>/.env</code>, <code>/backup.sql</code> — are red flags. Pattern recognition and attention to detail are superpowers in security.</p>
+        <h2>One-line takeaway</h2>
+        <h3>Output encoding, not input filtering</h3>
+        <p>Don't try to "sanitize" input on the way in (you'll miss something). Encode on the way out, with awareness of where the data lands. HTML body, attribute, JS string, URL. Each context needs its own escape rules.</p>
       </div>
     </div>
 
     <div class="learn-nav">
-      <a href="/" class="nav-btn secondary">← All Challenges</a>
-      <% if (hasNext) { %>
-      <a href="/challenge/<%= nextNum %>" class="nav-btn primary">Next Challenge →</a>
-      <% } %>
+      <a href="/" class="nav-btn secondary">← All findings</a>
+      <% if (hasNext) { %><a href="/challenge/<%= nextNum %>" class="nav-btn primary">Day <%= nextNum %> →</a><% } %>
     </div>
   </div>
 </body>

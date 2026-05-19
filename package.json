@@ -1,13 +1,15 @@
 {
-  "name": "ctf-girls",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "name": "cyser-workshop-ctf-2026",
+  "version": "3.0.0",
+  "description": "CySER Summer Workshop 2026 — Web Security CTF (8 web vulns, Skyway Airlines engagement story, ~1 hour)",
+  "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app.js",
+    "guide": "node create-guide.js",
+    "script": "node create-script.js"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["ctf", "cyser", "workshop", "websec", "owasp"],
+  "author": "CySER",
   "license": "ISC",
   "dependencies": {
     "cookie-parser": "^1.4.7",

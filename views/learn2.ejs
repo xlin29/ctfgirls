@@ -3,56 +3,57 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>You Learned: Cookies</title>
+  <title>Finding 2 · Client-Side Trust</title>
   <link rel="stylesheet" href="/css/style.css">
   <link rel="stylesheet" href="/css/learn.css">
 </head>
 <body>
   <div class="learn-page">
-    <img src="/images/logo.png" alt="EECS Girls Who Tech Camp" class="learn-logo">
+    <div class="brand brand-sm" style="margin-bottom: 24px;">
+      <span class="brand-mark">⛨</span>
+      <span>CySER Workshop · Skyway engagement</span>
+    </div>
 
     <div class="learn-hero">
       <div class="hero-icon">🍪</div>
-      <h1>Challenge 2 Complete!</h1>
-      <p class="hero-subtitle">Cookie Monster</p>
+      <h1>Finding 2 confirmed</h1>
+      <p class="hero-subtitle">Day 2 · Client-Side Trust / Cookie Tampering</p>
       <div class="flag-badge"><%= flag %></div>
     </div>
 
     <div class="learn-grid">
       <div class="learn-card skill-card">
-        <div class="card-icon">🔍</div>
-        <h2>Skill Unlocked</h2>
-        <h3>Cookie Inspection</h3>
-        <p>Cookies are small data files websites store in your browser. <code>F12 → Application → Cookies</code> or <code>document.cookie</code> reveals them all.</p>
+        <div class="card-icon">📚</div>
+        <h2>The vulnerability</h2>
+        <h3>Trusting user-controlled state</h3>
+        <p>Cookies, hidden form fields, JS variables, URL parameters. Anything the client can write is anything the client can <em>rewrite</em>. Gating authorization on "what the cookie says" is gating it on the attacker's preferences.</p>
       </div>
 
       <div class="learn-card world-card">
-        <div class="card-icon">🌍</div>
-        <h2>Real World</h2>
-        <h3>Session Hijacking</h3>
-        <p>Attackers steal session cookies to impersonate users. That's why secure cookies use <code>HttpOnly</code> and <code>Secure</code> flags to protect against theft.</p>
+        <div class="card-icon">📰</div>
+        <h2>Seen in the wild</h2>
+        <h3>"is_admin = true"</h3>
+        <p>Real apps have shipped this. Travel sites have priced premium economy as economy because of a client-side fare cookie. E-commerce sites have applied $0 totals because of a checkout cookie the user could edit. Privilege levels have escalated through one base64-decode-and-edit.</p>
       </div>
 
       <div class="learn-card career-card">
-        <div class="card-icon">👩‍💻</div>
-        <h2>Career Path</h2>
-        <h3>Web Security Engineer</h3>
-        <p>Every major tech company — Google, Meta, Amazon — employs security engineers who design systems to protect cookies and user sessions.</p>
+        <div class="card-icon">🛠️</div>
+        <h2>How to fix it</h2>
+        <h3>Server is the source of truth</h3>
+        <p>Look up the user's tier in your database on every privileged request. If you must put state in a cookie, sign it (HMAC) and verify the signature server-side. Treat cookie contents as adversarial input.</p>
       </div>
 
       <div class="learn-card key-card">
         <div class="card-icon">🔑</div>
-        <h2>Key Takeaway</h2>
-        <h3>Cookies Are Readable</h3>
-        <p>Never store passwords or secrets in client-accessible cookies. Use <code>HttpOnly</code> to block JavaScript access, and <code>Secure</code> to require HTTPS.</p>
+        <h2>One-line takeaway</h2>
+        <h3>Never trust the client</h3>
+        <p>Authentication says <em>who</em>; authorization says <em>what they can do</em>. Both checks belong on the server, every request, no exceptions.</p>
       </div>
     </div>
 
     <div class="learn-nav">
-      <a href="/" class="nav-btn secondary">← All Challenges</a>
-      <% if (hasNext) { %>
-      <a href="/challenge/<%= nextNum %>" class="nav-btn primary">Next Challenge →</a>
-      <% } %>
+      <a href="/" class="nav-btn secondary">← All findings</a>
+      <% if (hasNext) { %><a href="/challenge/<%= nextNum %>" class="nav-btn primary">Day <%= nextNum %> →</a><% } %>
     </div>
   </div>
 </body>

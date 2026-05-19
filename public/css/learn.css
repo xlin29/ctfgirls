@@ -1,4 +1,4 @@
-/* ============ LEARN PAGE — VISUAL CARD LAYOUT ============ */
+/* ============ LEARN PAGE. VISUAL CARD LAYOUT ============ */
 
 .learn-page {
   max-width: 900px;
@@ -116,7 +116,7 @@
   color: #1a1a1a;
 }
 
-/* Skill card — crimson accent */
+/* Skill card. Crimson accent */
 .skill-card {
   background: rgba(152,30,50,0.06);
   border: 1px solid rgba(152,30,50,0.12);
@@ -125,7 +125,7 @@
 .skill-card p { color: #5a4448; }
 .skill-card code { color: #981E32; }
 
-/* Real world card — green accent */
+/* Real world card. Green accent */
 .world-card {
   background: rgba(45,158,90,0.06);
   border: 1px solid rgba(45,158,90,0.12);
@@ -134,7 +134,7 @@
 .world-card p { color: #3a6a4a; }
 .world-card code { color: #2d9e5a; }
 
-/* Career card — blue accent */
+/* Career card. Blue accent */
 .career-card {
   background: rgba(40,100,180,0.06);
   border: 1px solid rgba(40,100,180,0.12);
@@ -142,7 +142,7 @@
 .career-card h2 { color: #2864b4; }
 .career-card p { color: #3a5570; }
 
-/* Key takeaway card — gold accent */
+/* Key takeaway card. Gold accent */
 .key-card {
   background: rgba(200,140,20,0.06);
   border: 1px solid rgba(200,140,20,0.12);

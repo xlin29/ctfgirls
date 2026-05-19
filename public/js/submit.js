@@ -30,14 +30,14 @@ async function submitFlag(challenge) {
     } else {
       resultDiv.className = 'result-msg error';
       resultDiv.style.display = 'block';
-      resultDiv.innerHTML = '❌ Not quite — try again!';
+      resultDiv.innerHTML = '❌ Not quite. Try again!';
       flagInput.classList.add('shake');
       setTimeout(() => flagInput.classList.remove('shake'), 500);
     }
   } catch (err) {
     resultDiv.className = 'result-msg error';
     resultDiv.style.display = 'block';
-    resultDiv.textContent = 'Something went wrong — please try again';
+    resultDiv.textContent = 'Something went wrong. Please try again';
   }
 }
 

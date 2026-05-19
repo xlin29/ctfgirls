@@ -3,56 +3,57 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>You Learned: Image Metadata</title>
+  <title>Finding 4 · SQL Injection</title>
   <link rel="stylesheet" href="/css/style.css">
   <link rel="stylesheet" href="/css/learn.css">
 </head>
 <body>
   <div class="learn-page">
-    <img src="/images/logo.png" alt="EECS Girls Who Tech Camp" class="learn-logo">
+    <div class="brand brand-sm" style="margin-bottom: 24px;">
+      <span class="brand-mark">⛨</span>
+      <span>CySER Workshop · Skyway engagement</span>
+    </div>
 
     <div class="learn-hero">
-      <div class="hero-icon">📸</div>
-      <h1>Challenge 4 Complete!</h1>
-      <p class="hero-subtitle">Secrets in a Photo</p>
+      <div class="hero-icon">💉</div>
+      <h1>Finding 4 confirmed</h1>
+      <p class="hero-subtitle">Day 4 · SQL Injection (auth bypass)</p>
       <div class="flag-badge"><%= flag %></div>
     </div>
 
     <div class="learn-grid">
       <div class="learn-card skill-card">
-        <div class="card-icon">🔍</div>
-        <h2>Skill Unlocked</h2>
-        <h3>EXIF Metadata Analysis</h3>
-        <p>Digital photos carry invisible EXIF data — camera model, timestamps, GPS coordinates, and embedded comments. You just extracted hidden info like a real forensic analyst!</p>
+        <div class="card-icon">📚</div>
+        <h2>The vulnerability</h2>
+        <h3>User input becomes code</h3>
+        <p>String-concatenating user input into a SQL query means the database parser can't tell data from instructions. <code>' OR '1'='1' --</code> turns "find this exact user" into "find anyone" with two extra characters.</p>
       </div>
 
       <div class="learn-card world-card">
-        <div class="card-icon">🌍</div>
-        <h2>Real World</h2>
-        <h3>Catching Criminals</h3>
-        <p>A fugitive was once tracked down because photos he posted online still contained GPS coordinates. Law enforcement uses EXIF data routinely in investigations.</p>
+        <div class="card-icon">📰</div>
+        <h2>Seen in the wild</h2>
+        <h3>Decades and counting</h3>
+        <p>SQL injection has been #1 on the OWASP Top 10 across multiple editions. TalkTalk (£77M fine), Heartland Payment Systems (130M cards), 7-Eleven, Sony Pictures. All SQLi. Despite being a 20+ year old bug class, it still cracks the top web vulnerability lists every year.</p>
       </div>
 
       <div class="learn-card career-card">
-        <div class="card-icon">👩‍💻</div>
-        <h2>Career Path</h2>
-        <h3>Digital Forensics Analyst</h3>
-        <p>Forensic analysts examine electronic evidence for law enforcement and corporations — recovering deleted files, analyzing metadata, and tracing digital footprints.</p>
+        <div class="card-icon">🛠️</div>
+        <h2>How to fix it</h2>
+        <h3>Parameterized queries, always</h3>
+        <p><code>db.query("SELECT * FROM users WHERE u=? AND p=?", [u, p])</code>. The <code>?</code> placeholders mean the driver sends data separately from the query. The database can never misinterpret <code>'</code> in a username as syntax. Use an ORM, or use prepared statements. Never concatenate.</p>
       </div>
 
       <div class="learn-card key-card">
         <div class="card-icon">🔑</div>
-        <h2>Key Takeaway</h2>
-        <h3>Photos Talk</h3>
-        <p>Always strip metadata before sharing photos publicly. Most social media platforms do this automatically, but not all apps do!</p>
+        <h2>One-line takeaway</h2>
+        <h3>Separate data from instructions</h3>
+        <p>This pattern, "user input parsed as syntax by some downstream interpreter", is the root of injection bugs everywhere: SQL, NoSQL, OS commands, LDAP queries, XPath, template engines, prompt injection. Same lesson, every layer.</p>
       </div>
     </div>
 
     <div class="learn-nav">
-      <a href="/" class="nav-btn secondary">← All Challenges</a>
-      <% if (hasNext) { %>
-      <a href="/challenge/<%= nextNum %>" class="nav-btn primary">Next Challenge →</a>
-      <% } %>
+      <a href="/" class="nav-btn secondary">← All findings</a>
+      <% if (hasNext) { %><a href="/challenge/<%= nextNum %>" class="nav-btn primary">Day <%= nextNum %> →</a><% } %>
     </div>
   </div>
 </body>

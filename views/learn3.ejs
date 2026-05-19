@@ -3,56 +3,57 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>You Learned: robots.txt</title>
+  <title>Finding 3 · IDOR</title>
   <link rel="stylesheet" href="/css/style.css">
   <link rel="stylesheet" href="/css/learn.css">
 </head>
 <body>
   <div class="learn-page">
-    <img src="/images/logo.png" alt="EECS Girls Who Tech Camp" class="learn-logo">
+    <div class="brand brand-sm" style="margin-bottom: 24px;">
+      <span class="brand-mark">⛨</span>
+      <span>CySER Workshop · Skyway engagement</span>
+    </div>
 
     <div class="learn-hero">
-      <div class="hero-icon">🤖</div>
-      <h1>Challenge 3 Complete!</h1>
-      <p class="hero-subtitle">The Robot's Secret</p>
+      <div class="hero-icon">🔢</div>
+      <h1>Finding 3 confirmed</h1>
+      <p class="hero-subtitle">Day 3 · Insecure Direct Object Reference</p>
       <div class="flag-badge"><%= flag %></div>
     </div>
 
     <div class="learn-grid">
       <div class="learn-card skill-card">
-        <div class="card-icon">🔍</div>
-        <h2>Skill Unlocked</h2>
-        <h3>Robots.txt Recon</h3>
-        <p><code>robots.txt</code> asks search engines to stay away from certain pages — but it's publicly readable and provides <strong>zero actual security</strong>.</p>
+        <div class="card-icon">📚</div>
+        <h2>The vulnerability</h2>
+        <h3>Authentication ≠ Authorization</h3>
+        <p>The endpoint asked "are you logged in?" but never asked "should you see <em>this</em> object?". Sequential IDs (or any guessable identifier) plus a missing per-object authz check equals access to every record in the database.</p>
       </div>
 
       <div class="learn-card world-card">
-        <div class="card-icon">🌍</div>
-        <h2>Real World</h2>
-        <h3>Information Leakage</h3>
-        <p>Security pros check <code>robots.txt</code> first during assessments. It often reveals admin panels, staging servers, and backup directories the owner tried to hide.</p>
+        <div class="card-icon">📰</div>
+        <h2>Seen in the wild</h2>
+        <h3>OWASP API #1</h3>
+        <p>Broken Object-Level Authorization (BOLA / IDOR) tops the OWASP API Security list. Facebook, T-Mobile, USPS, Parler, and dozens of fintech apps have leaked customer records via this exact bug. Usually one HTTP request from "your account" to "someone else's account."</p>
       </div>
 
       <div class="learn-card career-card">
-        <div class="card-icon">👩‍💻</div>
-        <h2>Career Path</h2>
-        <h3>Bug Bounty Hunter</h3>
-        <p>Companies like Google, Apple, and Microsoft pay researchers real money for finding security flaws. Many started as curious teenagers — just like you!</p>
+        <div class="card-icon">🛠️</div>
+        <h2>How to fix it</h2>
+        <h3>Authorize per object, per request</h3>
+        <p>On every fetch of a customer-scoped resource, verify the requesting user actually owns it (or has staff role). Don't rely on the ID being unguessable. Use UUIDs <em>and</em> server-side checks. Defense in depth.</p>
       </div>
 
       <div class="learn-card key-card">
         <div class="card-icon">🔑</div>
-        <h2>Key Takeaway</h2>
-        <h3>Obscurity ≠ Security</h3>
-        <p>Hiding something doesn't protect it. Real security requires authentication (login), authorization (permissions), and proper access controls.</p>
+        <h2>One-line takeaway</h2>
+        <h3>Every ID is attacker-controlled</h3>
+        <p>If the URL contains an identifier, assume the attacker will try every value. Build the authz check into the data access layer so it's impossible to forget at the route handler.</p>
       </div>
     </div>
 
     <div class="learn-nav">
-      <a href="/" class="nav-btn secondary">← All Challenges</a>
-      <% if (hasNext) { %>
-      <a href="/challenge/<%= nextNum %>" class="nav-btn primary">Next Challenge →</a>
-      <% } %>
+      <a href="/" class="nav-btn secondary">← All findings</a>
+      <% if (hasNext) { %><a href="/challenge/<%= nextNum %>" class="nav-btn primary">Day <%= nextNum %> →</a><% } %>
     </div>
   </div>
 </body>

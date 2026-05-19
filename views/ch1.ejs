@@ -3,52 +3,77 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Challenge 1: The Hidden Secret</title>
+  <title>Day 1: First Impressions</title>
   <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
   <div class="challenge-page">
-    <a href="/" class="back-link">← Back to Challenges</a>
-    <img src="/images/logo.png" alt="EECS Girls Who Tech Camp" class="page-logo">
+    <a href="/" class="back-link">← Back to engagement</a>
+    <div class="brand brand-sm">
+      <span class="brand-mark">⛨</span>
+      <span>CySER Workshop · Skyway engagement</span>
+    </div>
 
     <div class="challenge-header">
-      <h1>👀 Challenge 1: The Hidden Secret</h1>
-      <p class="desc">Mei says she hid a secret in her webpage. You can't see it... or can you?</p>
+      <h1>Day 1 · First Impressions</h1>
+      <p class="desc">Engagement Day 1. You've been handed scope and a URL: <code>portal.skyway</code>. Your first job is recon. And recon always starts with view source.</p>
+    </div>
+
+    <div class="story-box">
+      <strong>The story.</strong> Skyway's CTO swears their customer portal is "static and safe." It renders nothing
+      sensitive at first glance. But developers leave breadcrumbs in HTML. Comments, hidden elements, data attributes,
+      forgotten debug payloads. Open the page below in your browser, hit <code>Ctrl+U</code> (or DevTools), and see what
+      the team accidentally shipped.
     </div>
 
     <div class="challenge-content">
-      <div class="story-box">
-        Mei just built her first website and bragged to her friends: <em>"I hid a secret in my page and nobody can find it!"</em> As a future cybersecurity pro, prove her wrong!
-      </div>
-
       <div class="fake-website">
         <div class="fake-navbar">
-          <span>🌸 Mei's Homepage</span>
-          <span>About | Blog | Gallery</span>
+          <span>🛩️ Skyway Airlines · Customer Portal</span>
+          <span>Sign in · Help · ☰</span>
         </div>
-        <div class="fake-body">
-          <h2>Welcome to My Homepage!</h2>
-          <p>Hi! I'm Mei. I love coding, drawing, and playing guitar. 😊</p>
-          <p>I hid a secret somewhere in this page. Can you find it?</p>
-          <!-- 🎯 Mei's secret is hidden here! -->
-          <!-- flag{you_can_see_my_secrets!} -->
-          <!-- Hehe, you found it! Right-click → View Page Source to see these hidden comments -->
-          <p style="display:none">This is a hidden paragraph, but it's NOT the flag!</p>
-          <div data-secret="close-but-not-the-flag" style="display:none">Keep looking!</div>
+        <div class="fake-body" id="portal-shell">
+          <h2>Welcome back to Skyway.</h2>
+          <p>This page intentionally renders no sensitive data. All payloads have been removed from view.</p>
+
+          <!-- TODO: rotate decoy values monthly -->
+          <!-- payload-a (decoy): <%= decoys[0] %> -->
+          <p style="display:none" data-secret="<%= decoys[1] %>">decoy element A</p>
+          <span style="color:#fff;background:#fff;font-size:1px;visibility:hidden">
+            decoy fragment: <%= decoys[2] %>
+          </span>
+
+          <!-- 2026-03-14: security review pass. Confirmed no live secrets in source. (oops) -->
+          <div
+            id="boot-config"
+            class="invisible"
+            style="display:none"
+            data-role="initializer"
+            data-encoding="base64"
+            data-payload="<%= realPayload %>">
+            (boot config placeholder)
+          </div>
+          <!-- ^ verify base64 → ASCII at next deploy -->
+
+          <p style="display:none">also-not-the-flag: <%= decoys[0] %></p>
         </div>
       </div>
 
       <div class="hint-box">
         <details>
-          <summary class="hint-toggle">💡 Need a hint?</summary>
-          <p style="margin-top:8px;">Try right-clicking on the page and selecting <strong>"View Page Source"</strong>. Developers leave hidden notes in the code using <code>&lt;!-- comments --&gt;</code>.</p>
+          <summary class="hint-toggle">💡 Hint 1. Narrow it down</summary>
+          <p style="margin-top:8px;">Multiple elements look promising. Only one declares an encoding scheme. The others are explicitly labelled "decoy" or "not-the-flag" if you read carefully.</p>
+        </details>
+        <details style="margin-top: 10px;">
+          <summary class="hint-toggle">💡 Hint 2. Decode</summary>
+          <p style="margin-top:8px;">Copy <code>data-payload</code> from <code>#boot-config</code> and run <code>atob("…")</code> in the Console.</p>
         </details>
       </div>
     </div>
 
     <div class="flag-form">
       <input type="text" class="flag-input" id="flagInput" placeholder="flag{...}" />
-      <button class="submit-btn" onclick="submitFlag('ch1')">Submit Flag</button>
+      <button class="submit-btn" onclick="submitFlag('ch1')">Submit finding</button>
     </div>
     <div class="result-msg" id="result"></div>
   </div>

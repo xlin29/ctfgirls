@@ -33,6 +33,65 @@ header {
   filter: drop-shadow(0 2px 10px rgba(152,30,50,0.15));
 }
 
+/* ============ BRAND BLOCK (replaces image logo) ============ */
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  color: #1a1a1a;
+  text-decoration: none;
+  font-family: 'Inter', sans-serif;
+}
+
+.brand-mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #981E32, #751526);
+  color: #fff;
+  font-size: 1.9em;
+  box-shadow: 0 4px 14px rgba(152,30,50,0.25);
+}
+
+.brand-name {
+  font-size: 1.9em;
+  font-weight: 800;
+  letter-spacing: 1px;
+  background: linear-gradient(135deg, #981E32, #bf4055);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 1;
+}
+
+.brand-tag {
+  font-size: 0.95em;
+  color: #5E6A71;
+  letter-spacing: 0.5px;
+  margin-top: 4px;
+}
+
+.brand-lg {
+  margin: 6px auto 18px;
+}
+
+.brand-sm {
+  font-size: 0.95em;
+  color: #5E6A71;
+  margin-bottom: 18px;
+  font-weight: 500;
+  letter-spacing: 0.4px;
+}
+
+.brand-sm .brand-mark {
+  width: 32px;
+  height: 32px;
+  border-radius: 9px;
+  font-size: 1.1em;
+}
+
 header h1 {
   font-size: 2.8em;
   font-weight: 700;
@@ -173,6 +232,97 @@ header h1 {
 .card-badge.forensics {
   background: rgba(40,100,180,0.1);
   color: #2864b4;
+}
+
+.card-badge.crypto {
+  background: rgba(160,80,180,0.1);
+  color: #8b45a6;
+}
+
+.card-badge.auth {
+  background: rgba(200,140,20,0.12);
+  color: #b8860b;
+}
+
+.card-badge.sqli {
+  background: rgba(180,60,40,0.10);
+  color: #b43c28;
+}
+
+.card-badge.xss {
+  background: rgba(220,120,40,0.10);
+  color: #c4621a;
+}
+
+.card-badge.ssrf {
+  background: rgba(40,140,160,0.10);
+  color: #1f7d8d;
+}
+
+.card-badge.llm {
+  background: rgba(80,160,90,0.10);
+  color: #3d8a4d;
+}
+
+/* ============ ENGAGEMENT BANNER (index page) ============ */
+.engagement-banner {
+  background: #fff;
+  border: 1px solid #e0ddd8;
+  border-left: 4px solid #981E32;
+  border-radius: 12px;
+  padding: 22px 28px;
+  margin: 0 0 36px;
+  color: #444;
+  font-size: 1.05em;
+  line-height: 1.7;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+.engagement-banner code {
+  background: rgba(152,30,50,0.06);
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-family: 'Fira Code', monospace;
+  font-size: 0.92em;
+  color: #981E32;
+}
+
+/* ============ CHAT (Ch7 Prompt Injection) ============ */
+.chat-log {
+  background: #1a1a2e;
+  border-radius: 12px;
+  padding: 18px;
+  margin-top: 14px;
+  max-height: 360px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.chat-bubble {
+  font-family: 'Inter', sans-serif;
+  font-size: 1em;
+  line-height: 1.55;
+  padding: 12px 16px;
+  border-radius: 12px;
+  white-space: pre-wrap;
+  max-width: 88%;
+  word-wrap: break-word;
+}
+
+.chat-bubble.bot {
+  background: #2a2a3e;
+  color: #d8d8e8;
+  align-self: flex-start;
+  border-bottom-left-radius: 4px;
+}
+
+.chat-bubble.user {
+  background: #981E32;
+  color: #fff;
+  align-self: flex-end;
+  border-bottom-right-radius: 4px;
 }
 
 .card-difficulty {
@@ -472,6 +622,33 @@ footer p {
   font-family: 'Fira Code', monospace;
   font-size: 0.92em;
   color: #981E32;
+}
+
+/* ============ CIPHER + CODE BLOCKS ============ */
+.cipher-box {
+  background: #1a1a2e;
+  color: #ffce63;
+  border: 1px solid #2a2a3e;
+  border-radius: 12px;
+  padding: 22px 26px;
+  margin: 14px 0 22px;
+  font-family: 'Fira Code', monospace;
+  font-size: 1.25em;
+  letter-spacing: 1.5px;
+  word-break: break-all;
+  line-height: 1.6;
+}
+
+.code-block {
+  background: #1a1a2e;
+  color: #c9d1d9;
+  border: 1px solid #2a2a3e;
+  border-radius: 12px;
+  padding: 18px 22px;
+  font-family: 'Fira Code', monospace;
+  font-size: 1em;
+  overflow-x: auto;
+  line-height: 1.55;
 }
 
 /* ============ LOG VIEWER ============ */

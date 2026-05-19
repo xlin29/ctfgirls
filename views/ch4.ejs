@@ -3,48 +3,64 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Challenge 4: Secrets in a Photo</title>
+  <title>Day 4: The Crew Login</title>
   <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
   <div class="challenge-page">
-    <a href="/" class="back-link">← Back to Challenges</a>
-    <img src="/images/logo.png" alt="EECS Girls Who Tech Camp" class="page-logo">
+    <a href="/" class="back-link">← Back to engagement</a>
+    <div class="brand brand-sm">
+      <span class="brand-mark">⛨</span>
+      <span>CySER Workshop · Skyway engagement</span>
+    </div>
 
     <div class="challenge-header">
-      <h1>📸 Challenge 4: Secrets in a Photo</h1>
-      <p class="desc">Every photo has a hidden "ID card" with invisible info. Time to be a digital detective!</p>
+      <h1>Day 4 · The Crew Login</h1>
+      <p class="desc">A contractor built Skyway's crew portal login in raw, unparameterized SQL. The query template is even printed in the page footer for "debugging." Walk in.</p>
+    </div>
+
+    <div class="story-box">
+      <strong>The story.</strong> Crew members log in here to check schedules and report fatigue. The login takes
+      <code>username</code> + <code>password</code> and pastes them straight into a SQL query. You don't need to
+      know any user's password. You need to make the query <em>always true</em>.
     </div>
 
     <div class="challenge-content">
-      <div class="story-box">
-        The security team intercepted a suspicious photo. It looks like a normal picture, but digital photos secretly carry <strong>metadata</strong> — the camera, the time, even GPS location! Download the photo and dig into its hidden data.
-      </div>
-
-      <a href="/challenge/4/download" class="download-btn">📥 Download Evidence Photo</a>
-
-      <div class="tools-section">
-        <h3>🛠️ How to read a photo's secrets</h3>
-        <ul>
-          <li>Search <strong>"EXIF viewer online"</strong> and upload the photo</li>
-          <li>Or on Windows: right-click → Properties → Details</li>
-        </ul>
+      <div class="fake-website">
+        <div class="fake-navbar">
+          <span>🛩️ Skyway Crew Portal · v0.9-beta</span>
+          <span>Login · Help</span>
+        </div>
+        <div class="fake-body">
+          <h2>Crew sign-in</h2>
+          <form method="POST" action="/challenge/4/login" style="display:flex;flex-direction:column;gap:12px;max-width:380px">
+            <input name="username" placeholder="Username" required class="flag-input">
+            <input name="password" type="text" placeholder="Password" required class="flag-input">
+            <button class="submit-btn">Sign in</button>
+          </form>
+          <% if (result && result.message) { %>
+            <div class="result-msg error" style="display:block; margin-top:14px;"><%= result.message %></div>
+          <% } %>
+          <% if (attemptedQuery) { %>
+            <p style="margin-top:18px;color:#888;font-size:0.9em">Debug. Query just executed:</p>
+            <pre class="code-block" style="font-size:0.9em"><%= attemptedQuery %></pre>
+          <% } %>
+          <p style="margin-top:24px;color:#888;font-size:0.85em">
+            <em>Backend query template (printed here for "debug"):</em><br>
+            <code>SELECT * FROM users WHERE username='{u}' AND password='{p}'</code>
+          </p>
+        </div>
       </div>
 
       <div class="hint-box">
         <details>
-          <summary class="hint-toggle">💡 Need a hint?</summary>
-          <p style="margin-top:8px;">Upload the photo to an online EXIF viewer. Look for the <code>Comment</code> field — the flag is hiding there!</p>
+          <summary class="hint-toggle">💡 Why this works</summary>
+          <p style="margin-top:8px;">Your input turns the query into:<br>
+          <code style="font-size:0.85em">SELECT * FROM users WHERE username='' OR '1'='1' -- ' AND password='...'</code><br>
+          The <code>--</code> comments out the password check. <code>'1'='1'</code> is always true. The query returns the first user. Usually the admin.</p>
         </details>
       </div>
     </div>
-
-    <div class="flag-form">
-      <input type="text" class="flag-input" id="flagInput" placeholder="flag{...}" />
-      <button class="submit-btn" onclick="submitFlag('ch4')">Submit Flag</button>
-    </div>
-    <div class="result-msg" id="result"></div>
   </div>
-  <script src="/js/submit.js"></script>
 </body>
 </html>

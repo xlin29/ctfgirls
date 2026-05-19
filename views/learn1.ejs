@@ -3,56 +3,57 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>You Learned: View Source</title>
+  <title>Finding 1 · Information Disclosure</title>
   <link rel="stylesheet" href="/css/style.css">
   <link rel="stylesheet" href="/css/learn.css">
 </head>
 <body>
   <div class="learn-page">
-    <img src="/images/logo.png" alt="EECS Girls Who Tech Camp" class="learn-logo">
+    <div class="brand brand-sm" style="margin-bottom: 24px;">
+      <span class="brand-mark">⛨</span>
+      <span>CySER Workshop · Skyway engagement</span>
+    </div>
 
     <div class="learn-hero">
-      <div class="hero-icon">👀</div>
-      <h1>Challenge 1 Complete!</h1>
-      <p class="hero-subtitle">The Hidden Secret</p>
+      <div class="hero-icon">🔎</div>
+      <h1>Finding 1 confirmed</h1>
+      <p class="hero-subtitle">Day 1 · Information Disclosure in HTML</p>
       <div class="flag-badge"><%= flag %></div>
     </div>
 
     <div class="learn-grid">
       <div class="learn-card skill-card">
-        <div class="card-icon">🔍</div>
-        <h2>Skill Unlocked</h2>
-        <h3>View Page Source</h3>
-        <p>Every webpage has source code anyone can read. HTML comments (<code>&lt;!-- --&gt;</code>) and hidden elements are <strong>never truly hidden</strong>.</p>
+        <div class="card-icon">📚</div>
+        <h2>The vulnerability</h2>
+        <h3>Secrets in client code</h3>
+        <p>Anything sent to the browser is yours forever. HTML comments, hidden elements, <code>data-*</code> attributes, source maps, debug strings. All visible. Base64 hides nothing; <code>atob()</code> reverses it in one line.</p>
       </div>
 
       <div class="learn-card world-card">
-        <div class="card-icon">🌍</div>
-        <h2>Real World</h2>
-        <h3>Security Reconnaissance</h3>
-        <p>Researchers check source code for leaked API keys, internal URLs, and debug comments. A major airline once exposed customer data through comments left in production code.</p>
+        <div class="card-icon">📰</div>
+        <h2>Seen in the wild</h2>
+        <h3>API keys in JS bundles</h3>
+        <p>Companies routinely ship internal API keys, S3 bucket names, admin URLs, and feature flags in compiled JavaScript. Bug-bounty hunters comb minified bundles for <code>data-*</code> attributes, hardcoded tokens, and "TODO" comments daily. And routinely earn payouts.</p>
       </div>
 
       <div class="learn-card career-card">
-        <div class="card-icon">👩‍💻</div>
-        <h2>Career Path</h2>
-        <h3>Penetration Tester</h3>
-        <p>Companies pay ethical hackers to find vulnerabilities before the bad guys do. Curiosity is your greatest tool!</p>
+        <div class="card-icon">🛠️</div>
+        <h2>How to fix it</h2>
+        <h3>Keep secrets server-side</h3>
+        <p>If a string is sensitive, the browser must never see it. Render conditionally based on session state, fetch from an authenticated endpoint, or just don't include it. Treat your source as public.</p>
       </div>
 
       <div class="learn-card key-card">
         <div class="card-icon">🔑</div>
-        <h2>Key Takeaway</h2>
-        <h3>Never Trust the Client</h3>
-        <p>Anything sent to the browser — comments, hidden fields, CSS-hidden text — can be read by the user. Real secrets belong on the server.</p>
+        <h2>One-line takeaway</h2>
+        <h3>Encoding ≠ secrecy</h3>
+        <p>Base64, hex, URL-encoding, ROT13. None of these protect anything from a determined viewer. Encryption with a key the attacker can't read is the only secrecy. Everything else is decoration.</p>
       </div>
     </div>
 
     <div class="learn-nav">
-      <a href="/" class="nav-btn secondary">← All Challenges</a>
-      <% if (hasNext) { %>
-      <a href="/challenge/<%= nextNum %>" class="nav-btn primary">Next Challenge →</a>
-      <% } %>
+      <a href="/" class="nav-btn secondary">← All findings</a>
+      <% if (hasNext) { %><a href="/challenge/<%= nextNum %>" class="nav-btn primary">Day <%= nextNum %> →</a><% } %>
     </div>
   </div>
 </body>
