@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Skyway Crew · Dashboard</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <div class="challenge-page">
+    <a href="/challenge/4" class="back-link">← Back to Day 4</a>
+    <div class="brand brand-sm">
+      <span class="brand-mark">⛨</span>
+      <span>CySER Workshop · Skyway engagement</span>
+    </div>
+
+    <div class="fake-website">
+      <div class="fake-navbar">
+        <span>🛩️ Skyway Crew · Welcome, <%= username %></span>
+        <span>Schedule · Reports · Logout</span>
+      </div>
+      <div class="fake-body">
+        <% if (bypassed) { %>
+          <h2>👑 You're in as <code><%= username %></code>.</h2>
+          <p style="color:#2d9e5a;font-weight:600">Authentication bypassed via SQL Injection. The query template you abused:</p>
+          <pre class="code-block" style="font-size:0.9em"><%= query %></pre>
+          <p>Admin-only message of the day:</p>
+          <pre class="code-block" style="font-size:1.15em;color:#981E32"><%= flag %></pre>
+          <p style="margin-top:18px;">Copy that code and submit it back on <a href="/challenge/4" style="color:#981E32;font-weight:600">Day 4</a>.</p>
+        <% } else { %>
+          <h2>Welcome, <%= username %>.</h2>
+          <p>This dashboard is normally restricted to admin staff.</p>
+          <p style="opacity:0.7">(Nice. You used real credentials. The CTF prize requires a true SQL injection.)</p>
+        <% } %>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

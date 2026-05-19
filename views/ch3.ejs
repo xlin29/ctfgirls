@@ -3,55 +3,68 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Challenge 3: The Robot's Secret</title>
+  <title>Day 3: The VIP Manifest</title>
   <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
   <div class="challenge-page">
-    <a href="/" class="back-link">← Back to Challenges</a>
-    <img src="/images/logo.png" alt="EECS Girls Who Tech Camp" class="page-logo">
+    <a href="/" class="back-link">← Back to engagement</a>
+    <div class="brand brand-sm">
+      <span class="brand-mark">⛨</span>
+      <span>CySER Workshop · Skyway engagement</span>
+    </div>
 
     <div class="challenge-header">
-      <h1>🤖 Challenge 3: The Robot's Secret</h1>
-      <p class="desc">Websites have a special file that tells search engine "robots" where NOT to go. But you're not a robot... right?</p>
+      <h1>Day 3 · The VIP Manifest</h1>
+      <p class="desc">Skyway's customer-service tool lets staff look up any booking by ID. The "any" is doing a lot of work in that sentence.</p>
+    </div>
+
+    <div class="story-box">
+      <strong>The story.</strong> The staff portal is supposed to be internal. The lookup endpoint takes a booking
+      ID and returns the booking. With <strong>zero authorization check</strong>. Anyone who reaches the page can
+      enumerate every customer's record. Ops also let slip in their notes that one of today's bookings is
+      flagged "VIP" with a special comp code. Find that record.
     </div>
 
     <div class="challenge-content">
-      <div class="story-box">
-        This blogger thinks she hid some secret pages. She told the search engine robots to stay away — but that file is <strong>public</strong> and anyone can read it. If you figure out the file's name, you'll find the hidden page!
-      </div>
-
       <div class="fake-website">
         <div class="fake-navbar">
-          <span>📝 Someone's Blog</span>
-          <span>Posts | About | Contact</span>
+          <span>🛩️ Skyway · Public Site</span>
+          <span>Home · About · Press</span>
         </div>
         <div class="fake-body">
-          <h2>Welcome to My Blog!</h2>
-          <p>There are some pages I don't want anyone to find~</p>
-          <p>I told the robots to stay away, so nobody will discover them... right? 😏</p>
+          <h2>Skyway Airlines.</h2>
+          <p>Everything we publish is on this homepage. Staff tooling is internal-only.</p>
+          <p style="opacity:0.6">(Search engines have been politely asked not to index our private paths.)</p>
         </div>
       </div>
 
       <div class="tools-section">
-        <h3>🛠️ Quick tip</h3>
+        <h3>🛠 How to attack this</h3>
         <ul>
-          <li>The file is called <code>robots.txt</code> and lives at the root of every website</li>
-          <li>Try adding <code>/robots.txt</code> to the URL in your browser!</li>
+          <li>Start at <a href="/robots.txt" target="_blank"><code>/robots.txt</code></a>. It leaks which paths Skyway is hiding from search engines</li>
+          <li>Visit the hidden <code>/staff/</code> landing page (the staff portal)</li>
+          <li>Use the booking lookup. IDs run <code>1001,1100</code> per their note</li>
+          <li>The VIP record is one of them. Enumerate to find it (curl loop or sweep manually)</li>
         </ul>
       </div>
 
       <div class="hint-box">
         <details>
-          <summary class="hint-toggle">💡 Need a hint?</summary>
-          <p style="margin-top:8px;">Visit <code>http://localhost:3000/robots.txt</code>. See the <code>Disallow</code> path? Go to that page!</p>
+          <summary class="hint-toggle">💡 Enumerate fast with a one-liner</summary>
+          <p style="margin-top:8px;"><strong>Browser Console:</strong><br>
+          <code style="white-space:pre">for (let i=1001;i&lt;=1100;i++) {
+  const r = await fetch('/staff/booking?id='+i);
+  const t = await r.text();
+  if (t.includes('flag{')) { console.log(i, t.match(/flag\{[^}]+\}/)[0]); break; }
+}</code></p>
         </details>
       </div>
     </div>
 
     <div class="flag-form">
       <input type="text" class="flag-input" id="flagInput" placeholder="flag{...}" />
-      <button class="submit-btn" onclick="submitFlag('ch3')">Submit Flag</button>
+      <button class="submit-btn" onclick="submitFlag('ch3')">Submit finding</button>
     </div>
     <div class="result-msg" id="result"></div>
   </div>

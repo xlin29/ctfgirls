@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Skyway · Platinum Lounge</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <div class="challenge-page">
+    <a href="/challenge/2" class="back-link">← Back to Day 2</a>
+    <div class="brand brand-sm">
+      <span class="brand-mark">⛨</span>
+      <span>CySER Workshop · Skyway engagement</span>
+    </div>
+
+    <div class="fake-website">
+      <div class="fake-navbar">
+        <span>🛩️ Skyway · Platinum Lounge</span>
+        <span>Membership · Logout</span>
+      </div>
+      <div class="fake-body">
+        <% if (granted) { %>
+          <h2>👑 Welcome, Platinum member.</h2>
+          <p>Your tier check passed (<code><%= tier %></code>). Enjoy your complimentary lounge access.</p>
+          <p>Today's comp meal voucher code:</p>
+          <pre class="code-block" style="font-size:1.15em;color:#981E32"><%= flag %></pre>
+          <p style="margin-top:18px;">Copy that code and submit it back on <a href="/challenge/2" style="color:#981E32;font-weight:600">Day 2</a>.</p>
+        <% } else if (tier === null) { %>
+          <h2>🚫 No tier cookie present.</h2>
+          <p>Return to <a href="/challenge/2" style="color:#981E32;font-weight:600">Day 2</a> to receive a Bronze cookie, then tamper.</p>
+        <% } else { %>
+          <h2>🚫 Access denied.</h2>
+          <p>Your tier is <code><%= tier %></code>. This lounge is for <code>platinum</code> members only.</p>
+          <p>Adjust your loyalty cookie and reload.</p>
+        <% } %>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

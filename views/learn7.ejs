@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Finding 7 · Prompt Injection</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/learn.css">
+</head>
+<body>
+  <div class="learn-page">
+    <div class="brand brand-sm" style="margin-bottom: 24px;">
+      <span class="brand-mark">⛨</span>
+      <span>CySER Workshop · Skyway engagement</span>
+    </div>
+
+    <div class="learn-hero">
+      <div class="hero-icon">🤖</div>
+      <h1>Finding 7 confirmed</h1>
+      <p class="hero-subtitle">Day 7 · Prompt Injection / System-Prompt Leak</p>
+      <div class="flag-badge"><%= flag %></div>
+    </div>
+
+    <div class="learn-grid">
+      <div class="learn-card skill-card">
+        <div class="card-icon">📚</div>
+        <h2>The vulnerability</h2>
+        <h3>Prompts are data, not code</h3>
+        <p>LLMs read instructions, user messages, and retrieved documents as one undifferentiated stream of tokens. The "system prompt" isn't architecturally privileged. It's just text the model saw first. Ask the model to repeat its context, and it does.</p>
+      </div>
+
+      <div class="learn-card world-card">
+        <div class="card-icon">📰</div>
+        <h2>Seen in the wild</h2>
+        <h3>Bing's "Sydney", every GPT product launch</h3>
+        <p>Microsoft's Bing chatbot leaked its internal codename "Sydney" and full operating instructions within days of release. ChatGPT custom GPTs leak their instructions and uploaded files routinely. Production AI assistants have been tricked into recommending competitors, granting refunds, and spilling internal SOPs by users who simply asked nicely in the right phrasing.</p>
+      </div>
+
+      <div class="learn-card career-card">
+        <div class="card-icon">🛠️</div>
+        <h2>How to fix it</h2>
+        <h3>Don't put secrets in prompts</h3>
+        <p>If the model knows it, the user can extract it. Eventually. Keep secrets server-side, gated behind code your LLM doesn't control. Use output filters to scrub patterns (API keys, flag formats). Add separate "judge" models to evaluate responses. Most importantly: design assuming the model <em>will</em> leak its context.</p>
+      </div>
+
+      <div class="learn-card key-card">
+        <div class="card-icon">🔑</div>
+        <h2>One-line takeaway</h2>
+        <h3>It's just SQL injection wearing a hat</h3>
+        <p>"User input becomes interpreted instructions". The same root cause as SQLi, XSS, command injection. Different layer (natural language instead of SQL or HTML), same lesson. Treat untrusted text as untrusted at every boundary, including the ones inside the model's context window.</p>
+      </div>
+    </div>
+
+    <div class="learn-nav">
+      <a href="/" class="nav-btn secondary">← All findings</a>
+      <% if (hasNext) { %><a href="/challenge/<%= nextNum %>" class="nav-btn primary">Day <%= nextNum %> →</a><% } %>
+    </div>
+  </div>
+</body>
+</html>

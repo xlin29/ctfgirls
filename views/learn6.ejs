@@ -3,62 +3,57 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>You Learned: File Magic Numbers</title>
+  <title>Finding 6 · SSRF</title>
   <link rel="stylesheet" href="/css/style.css">
   <link rel="stylesheet" href="/css/learn.css">
 </head>
 <body>
   <div class="learn-page">
-    <img src="/images/logo.png" alt="EECS Girls Who Tech Camp" class="learn-logo">
+    <div class="brand brand-sm" style="margin-bottom: 24px;">
+      <span class="brand-mark">⛨</span>
+      <span>CySER Workshop · Skyway engagement</span>
+    </div>
 
     <div class="learn-hero">
-      <div class="hero-icon">🔮</div>
-      <h1>Challenge 6 Complete!</h1>
-      <p class="hero-subtitle">The Mystery File</p>
+      <div class="hero-icon">🌐</div>
+      <h1>Finding 6 confirmed</h1>
+      <p class="hero-subtitle">Day 6 · Server-Side Request Forgery</p>
       <div class="flag-badge"><%= flag %></div>
     </div>
 
     <div class="learn-grid">
       <div class="learn-card skill-card">
-        <div class="card-icon">🔍</div>
-        <h2>Skill Unlocked</h2>
-        <h3>File Signature Analysis</h3>
-        <p>File extensions are just labels — they can be faked. "Magic numbers" (the first bytes) reveal a file's true type: <code>%PDF</code>, <code>PK</code> (ZIP), <code>89 PNG</code>.</p>
+        <div class="card-icon">📚</div>
+        <h2>The vulnerability</h2>
+        <h3>The server fetches what you tell it to</h3>
+        <p>Any feature that takes a user-supplied URL and fetches it server-side is potentially SSRF. The server has different network reach and different headers than you do. Including access to internal-only services, cloud metadata endpoints, and any auth your code adds "automatically."</p>
       </div>
 
       <div class="learn-card world-card">
-        <div class="card-icon">🌍</div>
-        <h2>Real World</h2>
-        <h3>Malware Disguise</h3>
-        <p>Criminals rename viruses from <code>.exe</code> to <code>.pdf</code> to trick people. Antivirus software checks magic numbers rather than trusting extensions — and now you know why.</p>
+        <div class="card-icon">📰</div>
+        <h2>Seen in the wild</h2>
+        <h3>Capital One · 2019</h3>
+        <p>SSRF in a misconfigured WAF allowed an attacker to query AWS instance metadata at <code>169.254.169.254</code>, steal IAM credentials, and exfiltrate 100M+ customer records. $190M settlement. Modern SSRF is one of the highest-impact bug classes in cloud environments.</p>
       </div>
 
       <div class="learn-card career-card">
-        <div class="card-icon">👩‍💻</div>
-        <h2>Career Path</h2>
-        <h3>Malware Analyst</h3>
-        <p>Malware analysts examine suspicious files using hex editors and forensic tools. The cybersecurity workforce gap exceeds 3.4 million globally — the field needs you!</p>
+        <div class="card-icon">🛠️</div>
+        <h2>How to fix it</h2>
+        <h3>Allow-list, not deny-list</h3>
+        <p>Validate URLs against an explicit allow-list of domains. Block private IP ranges (RFC1918, loopback, link-local). Use a dedicated service account with no internal network access. Never propagate "trusted internal" headers to user-controlled destinations. Use IMDSv2 on AWS.</p>
       </div>
 
       <div class="learn-card key-card">
         <div class="card-icon">🔑</div>
-        <h2>Key Takeaway</h2>
-        <h3>Don't Trust Extensions</h3>
-        <p>Always verify file types by examining their contents. A <code>.dat</code> file might be a PDF, a <code>.jpg</code> might be a ZIP. Trust the bytes, not the name.</p>
+        <h2>One-line takeaway</h2>
+        <h3>Your server is a confused deputy</h3>
+        <p>SSRF turns your backend into a proxy for the attacker. With your network position, your credentials, and your trust. Anywhere the server can reach, the attacker can now reach through you.</p>
       </div>
     </div>
 
-    <!-- Special completion banner for final challenge -->
-    <div class="completion-banner">
-      <div class="completion-stars">🏆</div>
-      <h2>All 6 Challenges Complete!</h2>
-      <p>You explored web security and digital forensics techniques used by real professionals every day.</p>
-      <p class="completion-cta">The cybersecurity field needs more women. You could be one of them.</p>
-      <p class="completion-sig">— EECS Girls Who Tech Camp</p>
-    </div>
-
     <div class="learn-nav">
-      <a href="/" class="nav-btn primary">← Back to All Challenges</a>
+      <a href="/" class="nav-btn secondary">← All findings</a>
+      <% if (hasNext) { %><a href="/challenge/<%= nextNum %>" class="nav-btn primary">Day <%= nextNum %> →</a><% } %>
     </div>
   </div>
 </body>

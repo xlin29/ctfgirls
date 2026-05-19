@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Finding 8 · JWT alg:none</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/learn.css">
+</head>
+<body>
+  <div class="learn-page">
+    <div class="brand brand-sm" style="margin-bottom: 24px;">
+      <span class="brand-mark">⛨</span>
+      <span>CySER Workshop · Skyway engagement</span>
+    </div>
+
+    <div class="learn-hero">
+      <div class="hero-icon">🗝️</div>
+      <h1>Finding 8 confirmed</h1>
+      <p class="hero-subtitle">Day 8 · JWT alg:none / Algorithm Confusion</p>
+      <div class="flag-badge"><%= flag %></div>
+    </div>
+
+    <div class="learn-grid">
+      <div class="learn-card skill-card">
+        <div class="card-icon">📚</div>
+        <h2>The vulnerability</h2>
+        <h3>Trusting the token's own header</h3>
+        <p>A JWT's header tells the verifier which algorithm to use. If the verifier obeys that header without pinning, an attacker picks the algorithm. Including <code>none</code> (no signature) or downgrading from RS256 (asymmetric) to HS256 with the public key as the HMAC secret.</p>
+      </div>
+
+      <div class="learn-card world-card">
+        <div class="card-icon">📰</div>
+        <h2>Seen in the wild</h2>
+        <h3>Auth0, Atlassian, more</h3>
+        <p>Auth0's library shipped <code>alg:none</code>-acceptable verification by default. Atlassian was vulnerable. Most early JWT libraries had this footgun. CVEs in this class still surface yearly. Every new language's JWT library rediscovers the bug.</p>
+      </div>
+
+      <div class="learn-card career-card">
+        <div class="card-icon">🛠️</div>
+        <h2>How to fix it</h2>
+        <h3>Pin the algorithm server-side</h3>
+        <p><code>jwt.verify(token, secret, { algorithms: ['HS256'] })</code>. Pass the algorithm allow-list explicitly. Never derive it from the token's own header. Reject <code>none</code>, reject mismatches, reject unknown algs. Treat the token's header as data, not as a directive.</p>
+      </div>
+
+      <div class="learn-card key-card">
+        <div class="card-icon">🔑</div>
+        <h2>One-line takeaway</h2>
+        <h3>Attacker-controlled fields are never directives</h3>
+        <p>Same pattern as SSRF (attacker picks the URL), prompt injection (attacker picks the instructions), and SQLi (attacker picks the syntax). Anywhere your code reads an attacker-controlled value and uses it to choose <em>what to do</em>, you have a class of bug to hunt for.</p>
+      </div>
+    </div>
+
+    <div class="completion-banner">
+      <div class="completion-stars">🏆</div>
+      <h2>Engagement complete. 8 findings confirmed</h2>
+      <p>You covered the OWASP web vulnerability landscape end-to-end: info disclosure, broken authn/authz, injection, XSS, SSRF, prompt injection, and JWT misconfig. Real engagements look exactly like this. Chain small wins, recognize patterns, write them up.</p>
+      <p class="completion-cta">Write the report. The CTO is waiting.</p>
+      <p class="completion-sig">CySER Summer Workshop 2026</p>
+    </div>
+
+    <div class="learn-nav">
+      <a href="/" class="nav-btn primary">← Back to all findings</a>
+    </div>
+  </div>
+</body>
+</html>

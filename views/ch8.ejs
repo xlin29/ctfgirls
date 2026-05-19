@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 8: The Final Boss (JWT alg:none)</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <div class="challenge-page">
+    <a href="/" class="back-link">← Back to engagement</a>
+    <div class="brand brand-sm">
+      <span class="brand-mark">⛨</span>
+      <span>CySER Workshop · Skyway engagement</span>
+    </div>
+
+    <div class="challenge-header">
+      <h1>Day 8 · The Final Boss</h1>
+      <p class="desc">Ground crew portal issues you a JWT signed with HS256. The signing secret is unguessable. The admin page wants <code>role: admin</code>. There's one classic verifier misconfig that turns this fight into a one-liner.</p>
+    </div>
+
+    <div class="story-box">
+      <strong>The story.</strong> JWTs have three Base64URL segments: <code>header.payload.signature</code>. The header
+      tells the verifier which algorithm to use. A well-known footgun: the JWT spec includes <code>alg: "none"</code>,
+      a "no signature" mode meant for already-trusted channels. Sane verifiers reject it outright. Skyway's
+      verifier doesn't. Forge a token with <code>alg: "none"</code> and <code>role: "admin"</code>, swap your cookie,
+      walk in.
+    </div>
+
+    <% if (error) { %>
+      <div class="result-msg error" style="display:block; margin-bottom: 16px;"><%= error %></div>
+    <% } %>
+
+    <div class="challenge-content">
+      <div class="fake-website">
+        <div class="fake-navbar">
+          <span>🛩️ Skyway · Ground Crew Portal</span>
+          <span>Sign in</span>
+        </div>
+        <div class="fake-body">
+          <h2>Sign in</h2>
+          <p>Any username works in this demo environment.</p>
+          <form method="POST" action="/challenge/8/login" style="display:flex;gap:10px;max-width:420px">
+            <input name="username" placeholder="username (e.g. recruit)" required class="flag-input" style="flex:1">
+            <button class="submit-btn">Log in</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="tools-section">
+        <h3>🛠 How to attack this</h3>
+        <ul>
+          <li>Log in. The server sets a <code>ch8_token</code> cookie (HS256-signed JWT, role: user)</li>
+          <li>Visit <a href="/challenge/8/profile">/challenge/8/profile</a> to see the decoded payload</li>
+          <li>Visit <a href="/challenge/8/admin">/challenge/8/admin</a>. Denied (role must be "admin")</li>
+          <li>Forge a new token with <code>alg: "none"</code> and <code>role: "admin"</code>, replace the cookie, reload</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="flag-form">
+      <input type="text" class="flag-input" id="flagInput" placeholder="flag{...}" />
+      <button class="submit-btn" onclick="submitFlag('ch8')">Submit finding</button>
+    </div>
+    <div class="result-msg" id="result"></div>
+  </div>
+  <script src="/js/submit.js"></script>
+</body>
+</html>

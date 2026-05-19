@@ -3,55 +3,54 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Challenge 2: Cookie Monster</title>
+  <title>Day 2: Bronze to Platinum</title>
   <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
   <div class="challenge-page">
-    <a href="/" class="back-link">← Back to Challenges</a>
-    <img src="/images/logo.png" alt="EECS Girls Who Tech Camp" class="page-logo">
+    <a href="/" class="back-link">← Back to engagement</a>
+    <div class="brand brand-sm">
+      <span class="brand-mark">⛨</span>
+      <span>CySER Workshop · Skyway engagement</span>
+    </div>
 
     <div class="challenge-header">
-      <h1>🍪 Challenge 2: Cookie Monster</h1>
-      <p class="desc">A mystery shop hid a secret in your browser's "cookies." Can you find it?</p>
+      <h1>Day 2 · Bronze to Platinum</h1>
+      <p class="desc">Skyway's loyalty program has tiers: Bronze, Silver, Gold, Platinum. Each tier unlocks portal features. And gates are enforced where, exactly?</p>
+    </div>
+
+    <div class="story-box">
+      <strong>The story.</strong> You signed up as a fresh Bronze member. The Platinum Lounge page is supposed to be
+      for top-tier flyers only. They get a comp meal voucher. The developer storing your tier in a
+      <strong>client-side cookie</strong> is the entire authorization check. Forge yourself to Platinum and walk in.
     </div>
 
     <div class="challenge-content">
-      <div class="story-box">
-        Websites can secretly stash little pieces of data in your browser — they're called <strong>cookies</strong>. This shop put several cookies in your browser. One of them contains the flag!
-      </div>
-
       <div class="fake-website">
         <div class="fake-navbar">
-          <span>🏪 The Mystery Shop</span>
-          <span>Home | Products | Contact</span>
+          <span>🛩️ Skyway Rewards</span>
+          <span>My Tier · Lounges · Logout</span>
         </div>
         <div class="fake-body">
-          <h2>Welcome to The Mystery Shop!</h2>
-          <p>I've secretly placed some "cookies" in your browser. 🍪🍪🍪</p>
-          <p>There are several cookies, but only ONE has the real flag!</p>
+          <h2>Hi, member.</h2>
+          <p>Welcome to the rewards portal. Your current status is stored in your browser.</p>
+          <p>Want to peek at what Platinum looks like? <a href="/challenge/2/lounge" style="color:#981E32;font-weight:600">→ Visit the Platinum Lounge</a></p>
         </div>
-      </div>
-
-      <div class="tools-section">
-        <h3>🛠️ How to peek at cookies</h3>
-        <ul>
-          <li>Press <code>F12</code> → go to <code>Application</code> tab → click <code>Cookies</code></li>
-          <li>Or type <code>document.cookie</code> in the Console tab</li>
-        </ul>
       </div>
 
       <div class="hint-box">
         <details>
-          <summary class="hint-toggle">💡 Need a hint?</summary>
-          <p style="margin-top:8px;">Look for a cookie named <code>secret_flag</code>. The other two are decoys!</p>
+          <summary class="hint-toggle">💡 One-liner</summary>
+          <p style="margin-top:8px;">In the Console:<br>
+          <code>document.cookie = "loyalty_status=" + btoa(JSON.stringify({tier:"platinum",mileage:1240,since:"2024-04-12"})) + "; path=/"</code><br>
+          Then visit <a href="/challenge/2/lounge">/challenge/2/lounge</a>.</p>
         </details>
       </div>
     </div>
 
     <div class="flag-form">
       <input type="text" class="flag-input" id="flagInput" placeholder="flag{...}" />
-      <button class="submit-btn" onclick="submitFlag('ch2')">Submit Flag</button>
+      <button class="submit-btn" onclick="submitFlag('ch2')">Submit finding</button>
     </div>
     <div class="result-msg" id="result"></div>
   </div>

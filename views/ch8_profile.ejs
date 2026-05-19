@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Skyway Ground Crew · Profile</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <div class="challenge-page">
+    <a href="/challenge/8" class="back-link">← Back to Day 8</a>
+    <div class="brand brand-sm">
+      <span class="brand-mark">⛨</span>
+      <span>CySER Workshop · Skyway engagement</span>
+    </div>
+
+    <div class="challenge-header">
+      <h1>Profile</h1>
+      <p class="desc">Server-decoded view of your JWT.</p>
+    </div>
+
+    <div class="challenge-content">
+      <h2>Decoded payload</h2>
+      <pre class="code-block"><%= JSON.stringify(payload, null, 2) %></pre>
+
+      <h2>Your raw token</h2>
+      <pre class="code-block" style="word-break:break-all; white-space:pre-wrap;"><%= rawToken %></pre>
+
+      <% if (denied) { %>
+        <div class="result-msg error" style="display:block; margin: 18px 0;">
+          Access to <code>/challenge/8/admin</code> denied: your role is "<%= payload.role %>", admin required.
+        </div>
+      <% } %>
+
+      <div class="tools-section">
+        <h3>Next step</h3>
+        <ul>
+          <li>You can't re-sign HS256 without the server's secret. Don't bother trying</li>
+          <li>But you <em>can</em> hand-craft an <code>alg: "none"</code> token. Skyway's verifier accepts it</li>
+          <li>See the Console one-liner on <a href="/challenge/8">Day 8</a></li>
+        </ul>
+      </div>
+
+      <div style="display:flex; gap:14px; margin-top: 22px; flex-wrap: wrap;">
+        <a href="/challenge/8/admin" class="play-btn">Try /admin →</a>
+        <form method="POST" action="/challenge/8/logout" style="margin:0;">
+          <button type="submit" class="play-btn" style="background:#888;">Log out</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

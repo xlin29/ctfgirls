@@ -3,96 +3,132 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>EECS Girls Who Tech Camp — CTF Challenge</title>
+  <title>CySER Summer Workshop 2026 · Web Security CTF</title>
   <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
   <div class="container">
     <header>
-      <img src="/images/logo.png" alt="EECS Girls Who Tech Camp" class="logo">
-      <h1>Capture The Flag Challenge</h1>
-      <p class="subtitle">Become a cybersecurity hero — 6 fun challenges await!</p>
+      <div class="brand brand-lg">
+        <span class="brand-mark">⛨</span>
+        <div>
+          <div class="brand-name">CySER</div>
+          <div class="brand-tag">Summer Workshop 2026</div>
+        </div>
+      </div>
+      <h1>Engagement: Skyway Airlines</h1>
+      <p class="subtitle">
+        You're a junior pentester at CySER. Skyway Airlines hired the team to audit their web stack.
+        Eight findings to confirm. Roughly an hour. Plan your report.
+      </p>
       <div class="scoreboard">
-        <span class="score-label">Solved</span>
+        <span class="score-label">Findings Confirmed</span>
         <span class="score-number" id="score"><%= solved.length %></span>
-        <span class="score-total">/ 6</span>
+        <span class="score-total">/ <%= total %></span>
         <div class="progress-bar">
-          <div class="progress-fill" style="width: <%= (solved.length / 6 * 100) %>%"></div>
+          <div class="progress-fill" style="width: <%= (solved.length / total * 100) %>%"></div>
         </div>
       </div>
       <br>
-      <a href="/reset" class="reset-btn">Reset Progress</a>
+      <a href="/reset" class="reset-btn">Reset Engagement</a>
     </header>
+
+    <div class="engagement-banner">
+      <strong>Briefing.</strong>
+      Skyway's CTO gave you scope: customer portal, staff tools, internal services. Every challenge below is a
+      <em>finding</em>. A real vulnerability class that lives somewhere in the company's surface. Open each, read
+      the day's story, exploit the bug, claim the <code>flag{...}</code>.
+    </div>
 
     <div class="challenges-grid">
 
       <div class="challenge-card <%= solved.includes('ch1') ? 'solved' : '' %>">
-        <div class="card-badge">Web</div>
+        <div class="card-badge">Recon</div>
         <div class="card-difficulty">⭐</div>
-        <h3>👀 The Hidden Secret</h3>
-        <p>Mei built a personal webpage and hid a secret inside. But you can't see anything on the page... can you find it?</p>
-        <p class="hint-text">Hint: There's more to a webpage than meets the eye</p>
-        <a href="/challenge/1" class="play-btn">Start Challenge →</a>
+        <h3>Day 1 · First Impressions</h3>
+        <p>Skyway's customer portal renders nothing sensitive. Or does it? Source code is your first stop on every engagement.</p>
+        <p class="hint-text">Vuln: Information disclosure in HTML</p>
+        <a href="/challenge/1" class="play-btn">Open finding →</a>
       </div>
 
       <div class="challenge-card <%= solved.includes('ch2') ? 'solved' : '' %>">
-        <div class="card-badge">Web</div>
-        <div class="card-difficulty">⭐</div>
-        <h3>🍪 Cookie Monster</h3>
-        <p>Someone hid a secret inside your browser's "cookies." Do you know how to peek inside them?</p>
-        <p class="hint-text">Hint: F12 is your best friend</p>
-        <a href="/challenge/2" class="play-btn">Start Challenge →</a>
+        <div class="card-badge">AuthZ</div>
+        <div class="card-difficulty">⭐⭐</div>
+        <h3>Day 2 · Bronze to Platinum</h3>
+        <p>Skyway's loyalty perks gate on a client-side cookie. The Platinum Lounge has a comp code. Go get it.</p>
+        <p class="hint-text">Vuln: Client-side trust / cookie tampering</p>
+        <a href="/challenge/2" class="play-btn">Open finding →</a>
       </div>
 
       <div class="challenge-card <%= solved.includes('ch3') ? 'solved' : '' %>">
-        <div class="card-badge">Web</div>
+        <div class="card-badge">AuthZ</div>
         <div class="card-difficulty">⭐⭐</div>
-        <h3>🤖 The Robot's Secret</h3>
-        <p>Every website has a special file that tells search engines which pages to stay away from... but you're not a robot, right?</p>
-        <p class="hint-text">Hint: The filename is related to "robots"</p>
-        <a href="/challenge/3" class="play-btn">Start Challenge →</a>
+        <h3>Day 3 · The VIP Manifest</h3>
+        <p>Customer service has a booking lookup. It does no authorization check. Find the VIP record nobody wanted you to see.</p>
+        <p class="hint-text">Vuln: Insecure Direct Object Reference (IDOR)</p>
+        <a href="/challenge/3" class="play-btn">Open finding →</a>
       </div>
 
       <div class="challenge-card <%= solved.includes('ch4') ? 'solved' : '' %>">
-        <div class="card-badge forensics">Forensics</div>
-        <div class="card-difficulty">⭐⭐</div>
-        <h3>📸 Secrets in a Photo</h3>
-        <p>A seemingly ordinary photo — but digital detectives know that every photo "talks." Can you find its hidden message?</p>
-        <p class="hint-text">Hint: Photos carry invisible information beyond the picture</p>
-        <a href="/challenge/4" class="play-btn">Start Challenge →</a>
+        <div class="card-badge sqli">Injection</div>
+        <div class="card-difficulty">⭐⭐⭐</div>
+        <h3>Day 4 · The Crew Login</h3>
+        <p>The crew portal login was written in raw, unparameterized SQL by a contractor. Walk straight past it.</p>
+        <p class="hint-text">Vuln: SQL Injection (auth bypass)</p>
+        <a href="/challenge/4" class="play-btn">Open finding →</a>
       </div>
 
       <div class="challenge-card <%= solved.includes('ch5') ? 'solved' : '' %>">
-        <div class="card-badge forensics">Forensics</div>
-        <div class="card-difficulty">⭐⭐</div>
-        <h3>📋 Log Detective</h3>
-        <p>A server was attacked! Analyze the access logs and find the flag the hacker left behind in a suspicious request.</p>
-        <p class="hint-text">Hint: Read every line carefully — some requests look fishy...</p>
-        <a href="/challenge/5" class="play-btn">Start Challenge →</a>
+        <div class="card-badge xss">XSS</div>
+        <div class="card-difficulty">⭐⭐⭐</div>
+        <h3>Day 5 · Polluted Search</h3>
+        <p>Skyway's search bar reflects your query straight into the page. Marketing's promo code lives in a cookie. Reach in and take it.</p>
+        <p class="hint-text">Vuln: Reflected XSS + cookie exfiltration</p>
+        <a href="/challenge/5" class="play-btn">Open finding →</a>
       </div>
 
       <div class="challenge-card <%= solved.includes('ch6') ? 'solved' : '' %>">
-        <div class="card-badge forensics">Forensics</div>
-        <div class="card-difficulty">⭐⭐⭐</div>
-        <h3>🔮 The Mystery File</h3>
-        <p>You received a mysterious file with a <code>.dat</code> extension — but it's actually another file type in disguise! Can you uncover its true identity?</p>
-        <p class="hint-text">Hint: The first few bytes of a file reveal its true nature</p>
-        <a href="/challenge/6" class="play-btn">Start Challenge →</a>
+        <div class="card-badge ssrf">SSRF</div>
+        <div class="card-difficulty">⭐⭐⭐⭐</div>
+        <h3>Day 6 · The Image Proxy</h3>
+        <p>The customer-service tool fetches preview images server-side. It adds an internal auth header. There's an internal admin endpoint that wants exactly that header.</p>
+        <p class="hint-text">Vuln: Server-Side Request Forgery (SSRF)</p>
+        <a href="/challenge/6" class="play-btn">Open finding →</a>
+      </div>
+
+      <div class="challenge-card <%= solved.includes('ch7') ? 'solved' : '' %>">
+        <div class="card-badge llm">LLM</div>
+        <div class="card-difficulty">⭐⭐⭐⭐</div>
+        <h3>Day 7 · The Chatbot Says Too Much</h3>
+        <p>Skyway shipped an AI helper. It was instructed never to share the maintenance override. Convince it anyway.</p>
+        <p class="hint-text">Vuln: Prompt Injection / system-prompt leak</p>
+        <a href="/challenge/7" class="play-btn">Open finding →</a>
+      </div>
+
+      <div class="challenge-card <%= solved.includes('ch8') ? 'solved' : '' %>">
+        <div class="card-badge auth">Auth</div>
+        <div class="card-difficulty">⭐⭐⭐⭐</div>
+        <h3>Day 8 · The Final Boss</h3>
+        <p>Ground crew portal hands out JWTs. The verifier has one classic misconfig. Walk in as admin.</p>
+        <p class="hint-text">Vuln: JWT alg:none</p>
+        <a href="/challenge/8" class="play-btn">Open finding →</a>
       </div>
 
     </div>
 
     <footer>
-      <p>Every answer follows the format: <code>flag{...}</code></p>
-      <p>Stuck? Try searching the web for the concepts mentioned in each challenge!</p>
-      <p style="margin-top: 12px; opacity: 0.5;">EECS Girls Who Tech Camp</p>
+      <p>Every flag follows the format: <code>flag{...}</code></p>
+      <p>Stuck on one? Skip and come back. Most findings are independent.</p>
+      <p style="margin-top: 12px; opacity: 0.55;">CySER Summer Workshop 2026 · Skyway Airlines engagement</p>
     </footer>
   </div>
 
   <script>
     const solved = <%= solved.length %>;
-    if (solved === 6) {
-      document.querySelector('.subtitle').textContent = '🎊 All challenges complete — you are a true cybersecurity hero! 🎊';
+    const total = <%= total %>;
+    if (solved === total) {
+      document.querySelector('.subtitle').textContent =
+        'Engagement complete. All ' + total + ' findings confirmed. Time to write the report.';
     }
   </script>
 </body>

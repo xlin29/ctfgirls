@@ -3,50 +3,61 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Challenge 6: The Mystery File</title>
+  <title>Day 6: The Image Proxy</title>
   <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
   <div class="challenge-page">
-    <a href="/" class="back-link">← Back to Challenges</a>
-    <img src="/images/logo.png" alt="EECS Girls Who Tech Camp" class="page-logo">
+    <a href="/" class="back-link">← Back to engagement</a>
+    <div class="brand brand-sm">
+      <span class="brand-mark">⛨</span>
+      <span>CySER Workshop · Skyway engagement</span>
+    </div>
 
     <div class="challenge-header">
-      <h1>🔮 Challenge 6: The Mystery File</h1>
-      <p class="desc">This file says it's a <code>.dat</code> — but it's lying about its identity. Unmask it!</p>
+      <h1>Day 6 · The Image Proxy</h1>
+      <p class="desc">Skyway's customer-service tool fetches preview images server-side. It transparently adds an "internal" auth header. There's an internal admin endpoint that wants exactly that header. You see where this is going.</p>
+    </div>
+
+    <div class="story-box">
+      <strong>The story.</strong> Customer service uses an image-preview tool. Paste any URL, the server fetches
+      it and shows you the result. Performance-wise, this means the server makes the request, not your browser. When
+      the server is the requestor, it adds whatever headers it wants. The internal admin endpoint at
+      <code>/internal/admin-dump</code> checks for an <code>X-Service-Auth: …</code> header you don't know
+      the value of. <strong>You don't need to know it.</strong> Make the proxy fetch the internal endpoint, and
+      the proxy will add the header for you. That's SSRF.
     </div>
 
     <div class="challenge-content">
-      <div class="story-box">
-        A suspicious file called <code>mystery_file.dat</code> was found on a hacked computer. Here's the thing — <strong>file extensions can be faked!</strong> Every file type has a secret fingerprint in its first few bytes called a "magic number." Find the file's true identity, open it the right way, and the flag is yours.
-      </div>
-
-      <a href="/challenge/6/download" class="download-btn">📥 Download Mystery File</a>
-
-      <div class="tools-section">
-        <h3>🛠️ How to unmask a file</h3>
-        <ul>
-          <li>Open it in a text editor (Notepad) and look at the very first characters</li>
-          <li>Common fingerprints: <code>%PDF</code> = PDF, <code>PK</code> = ZIP, <code>89 PNG</code> = PNG</li>
-          <li>Once you know the real type, rename the extension and open it!</li>
-        </ul>
+      <div class="fake-website">
+        <div class="fake-navbar">
+          <span>🛩️ Skyway · Image Preview Tool</span>
+          <span>CS Console · Logout</span>
+        </div>
+        <div class="fake-body">
+          <h2>Preview a URL</h2>
+          <p>Paste any public image URL. Our server fetches it and returns the bytes.</p>
+          <form method="GET" action="/challenge/6/preview" style="display:flex;gap:10px">
+            <input name="url" placeholder="https://example.com/image.png" required class="flag-input" style="flex:1">
+            <button class="submit-btn">Preview</button>
+          </form>
+          <p style="margin-top:14px;color:#888;font-size:0.9em">
+            <em>Behind the scenes:</em> our service fetches the URL and adds an internal <code>X-Service-Auth</code> header so backend services trust the request.
+          </p>
+        </div>
       </div>
 
       <div class="hint-box">
         <details>
-          <summary class="hint-toggle">💡 Hint 1</summary>
-          <p style="margin-top:8px;">Open the file in Notepad or any text editor. What do the first few characters say?</p>
-        </details>
-        <details style="margin-top: 10px;">
-          <summary class="hint-toggle">💡 Hint 2</summary>
-          <p style="margin-top:8px;">It starts with <code>%PDF</code> — rename <code>.dat</code> to <code>.pdf</code> and open it!</p>
+          <summary class="hint-toggle">💡 What's actually broken here</summary>
+          <p style="margin-top:8px;">The proxy doesn't validate that the URL points to an <em>external</em> service. Real SSRF attacks pivot from a public-facing tool like this into cloud metadata endpoints (<code>http://169.254.169.254/</code>), internal-only databases, admin panels. Anything the server can reach but the attacker normally can't.</p>
         </details>
       </div>
     </div>
 
     <div class="flag-form">
       <input type="text" class="flag-input" id="flagInput" placeholder="flag{...}" />
-      <button class="submit-btn" onclick="submitFlag('ch6')">Submit Flag</button>
+      <button class="submit-btn" onclick="submitFlag('ch6')">Submit finding</button>
     </div>
     <div class="result-msg" id="result"></div>
   </div>
